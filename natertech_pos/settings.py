@@ -25,7 +25,7 @@ SECRET_KEY = 'x8rkdznff#5f-7w4gm=x1kj%3a)cmg87q&_*cek3#=#pzq&h!1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nater-pos.natertek.com', '127.0.0.1:8001']
 
 
 # Application definition

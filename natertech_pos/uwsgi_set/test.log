@@ -1,0 +1,652 @@
+*** Starting uWSGI 2.0.18 (64bit) on [Sun Mar 22 10:55:41 2020] ***
+compiled with version: 7.5.0 on 22 March 2020 06:50:02
+os: Linux-4.15.0-1057-aws #59-Ubuntu SMP Wed Dec 4 10:02:00 UTC 2019
+nodename: ip-172-31-34-232
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/deploy/natertech_pos/natertech_pos/uwsgi_set
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/deploy/natertech_pos
+your processes number limit is 3840
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+Python version: 3.6.9 (default, Nov  7 2019, 10:44:02)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55e96736ef60
+The -s/--socket option is missing and stdin is not a socket.
+*** Starting uWSGI 2.0.18 (64bit) on [Sun Mar 22 10:56:06 2020] ***
+compiled with version: 7.5.0 on 22 March 2020 06:50:02
+os: Linux-4.15.0-1057-aws #59-Ubuntu SMP Wed Dec 4 10:02:00 UTC 2019
+nodename: ip-172-31-34-232
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/deploy/natertech_pos/natertech_pos/uwsgi_set
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/deploy/natertech_pos
+your processes number limit is 3840
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.6.9 (default, Nov  7 2019, 10:44:02)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55bb9bab0c80
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+The -s/--socket option is missing and stdin is not a socket.
+*** Starting uWSGI 2.0.18 (64bit) on [Sun Mar 22 10:59:10 2020] ***
+compiled with version: 7.5.0 on 22 March 2020 06:50:02
+os: Linux-4.15.0-1057-aws #59-Ubuntu SMP Wed Dec 4 10:02:00 UTC 2019
+nodename: ip-172-31-34-232
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/deploy/natertech_pos/natertech_pos/uwsgi_set
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/deploy/natertech_pos
+your processes number limit is 3840
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.6.9 (default, Nov  7 2019, 10:44:02)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x560982a9cc80
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+The -s/--socket option is missing and stdin is not a socket.
+*** Starting uWSGI 2.0.18 (64bit) on [Sun Mar 22 11:02:55 2020] ***
+compiled with version: 7.5.0 on 22 March 2020 06:50:02
+os: Linux-4.15.0-1057-aws #59-Ubuntu SMP Wed Dec 4 10:02:00 UTC 2019
+nodename: ip-172-31-34-232
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/deploy/natertech_pos/natertech_pos/uwsgi_set
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/deploy/natertech_pos
+your processes number limit is 3840
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.6.9 (default, Nov  7 2019, 10:44:02)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55b05f2f4c80
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+The -s/--socket option is missing and stdin is not a socket.
+*** Starting uWSGI 2.0.18 (64bit) on [Sun Mar 22 11:03:52 2020] ***
+compiled with version: 7.5.0 on 22 March 2020 06:50:02
+os: Linux-4.15.0-1057-aws #59-Ubuntu SMP Wed Dec 4 10:02:00 UTC 2019
+nodename: ip-172-31-34-232
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/deploy/natertech_pos/natertech_pos/uwsgi_set
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/deploy/natertech_pos
+your processes number limit is 3840
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+Python version: 3.6.9 (default, Nov  7 2019, 10:44:02)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x564ad0224f60
+The -s/--socket option is missing and stdin is not a socket.
+*** Starting uWSGI 2.0.18 (64bit) on [Sun Mar 22 11:05:25 2020] ***
+compiled with version: 7.5.0 on 22 March 2020 06:50:02
+os: Linux-4.15.0-1057-aws #59-Ubuntu SMP Wed Dec 4 10:02:00 UTC 2019
+nodename: ip-172-31-34-232
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/deploy/natertech_pos/natertech_pos/uwsgi_set
+writing pidfile to /home/deploy/natertech_pos/natertech_pos/uwsgi_set/test.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/deploy/natertech_pos
+your processes number limit is 3840
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+Python version: 3.6.9 (default, Nov  7 2019, 10:44:02)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55ebe5a6d000
+The -s/--socket option is missing and stdin is not a socket.
+*** Starting uWSGI 2.0.18 (64bit) on [Sun Mar 22 14:12:59 2020] ***
+compiled with version: 7.5.0 on 22 March 2020 06:50:02
+os: Linux-4.15.0-1057-aws #59-Ubuntu SMP Wed Dec 4 10:02:00 UTC 2019
+nodename: ip-172-31-34-232
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/deploy/natertech_pos/natertech_pos/uwsgi_set
+writing pidfile to /home/deploy/natertech_pos/natertech_pos/uwsgi_set/test.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/deploy/natertech_pos
+your processes number limit is 3840
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+Python version: 3.6.9 (default, Nov  7 2019, 10:44:02)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x561f99f19000
+The -s/--socket option is missing and stdin is not a socket.
+*** Starting uWSGI 2.0.18 (64bit) on [Sun Mar 22 14:15:49 2020] ***
+compiled with version: 7.5.0 on 22 March 2020 06:50:02
+os: Linux-4.15.0-1057-aws #59-Ubuntu SMP Wed Dec 4 10:02:00 UTC 2019
+nodename: ip-172-31-34-232
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/deploy/natertech_pos/natertech_pos/uwsgi_set
+writing pidfile to /home/deploy/natertech_pos/natertech_pos/uwsgi_set/test.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/deploy/natertech_pos
+your processes number limit is 3840
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8001 fd 3
+Python version: 3.6.9 (default, Nov  7 2019, 10:44:02)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55657e8f81a0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 218760 bytes (213 KB) for 2 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55657e8f81a0 pid: 13222 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 13222)
+spawned uWSGI worker 1 (pid: 13224, cores: 1)
+spawned uWSGI worker 2 (pid: 13225, cores: 1)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13225|app: 0|req: 1/1] 27.247.45.101 () {42 vars in 812 bytes} [Sun Mar 22 14:15:52 2020] GET / => generated 56983 bytes in 40 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /admin
+[pid: 13224|app: 0|req: 1/2] 27.247.45.101 () {40 vars in 791 bytes} [Sun Mar 22 14:15:58 2020] GET /admin => generated 56906 bytes in 39 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /admin
+[pid: 13224|app: 0|req: 2/3] 27.247.45.101 () {42 vars in 822 bytes} [Sun Mar 22 14:17:24 2020] GET /admin => generated 57043 bytes in 28 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /admin
+[pid: 13225|app: 0|req: 2/4] 27.247.45.101 () {42 vars in 822 bytes} [Sun Mar 22 14:17:25 2020] GET /admin => generated 57043 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.18 (64bit) on [Sun Mar 22 14:18:02 2020] ***
+compiled with version: 7.5.0 on 22 March 2020 06:50:02
+os: Linux-4.15.0-1057-aws #59-Ubuntu SMP Wed Dec 4 10:02:00 UTC 2019
+nodename: ip-172-31-34-232
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/deploy/natertech_pos/natertech_pos/uwsgi_set
+writing pidfile to /home/deploy/natertech_pos/natertech_pos/uwsgi_set/test.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/deploy/natertech_pos
+your processes number limit is 3840
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+probably another instance of uWSGI is running on the same address (127.0.0.1:8001).
+bind(): Address already in use [core/socket.c line 769]
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /admin
+[pid: 13224|app: 0|req: 3/5] 27.247.45.101 () {42 vars in 822 bytes} [Sun Mar 22 14:18:05 2020] GET /admin => generated 57043 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /admin
+[pid: 13225|app: 0|req: 3/6] 27.247.45.101 () {42 vars in 822 bytes} [Sun Mar 22 14:18:06 2020] GET /admin => generated 57043 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /admin
+[pid: 13224|app: 0|req: 4/7] 27.247.45.101 () {42 vars in 822 bytes} [Sun Mar 22 14:19:12 2020] GET /admin => generated 57043 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /admin
+[pid: 13225|app: 0|req: 4/8] 27.247.45.101 () {42 vars in 822 bytes} [Sun Mar 22 14:19:14 2020] GET /admin => generated 57043 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.18 (64bit) on [Sun Mar 22 14:19:52 2020] ***
+compiled with version: 7.5.0 on 22 March 2020 06:50:02
+os: Linux-4.15.0-1057-aws #59-Ubuntu SMP Wed Dec 4 10:02:00 UTC 2019
+nodename: ip-172-31-34-232
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/deploy/natertech_pos/natertech_pos/uwsgi_set
+writing pidfile to /home/deploy/natertech_pos/natertech_pos/uwsgi_set/test.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/deploy/natertech_pos
+your processes number limit is 3840
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+probably another instance of uWSGI is running on the same address (127.0.0.1:8001).
+bind(): Address already in use [core/socket.c line 769]
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /admin
+[pid: 13224|app: 0|req: 5/9] 27.247.45.101 () {42 vars in 822 bytes} [Sun Mar 22 14:19:55 2020] GET /admin => generated 57043 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /admin
+[pid: 13225|app: 0|req: 5/10] 27.247.45.101 () {42 vars in 822 bytes} [Sun Mar 22 14:19:56 2020] GET /admin => generated 57043 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /admin
+[pid: 13224|app: 0|req: 6/11] 27.247.45.101 () {42 vars in 822 bytes} [Sun Mar 22 14:19:57 2020] GET /admin => generated 57043 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /admin
+[pid: 13224|app: 0|req: 7/12] 27.247.45.101 () {42 vars in 822 bytes} [Sun Mar 22 14:20:45 2020] GET /admin => generated 57043 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /admin
+[pid: 13225|app: 0|req: 6/13] 27.247.45.101 () {42 vars in 822 bytes} [Sun Mar 22 14:20:45 2020] GET /admin => generated 57043 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13224|app: 0|req: 8/14] 27.247.45.101 () {40 vars in 781 bytes} [Sun Mar 22 14:20:58 2020] GET / => generated 56846 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13224|app: 0|req: 9/15] 27.247.45.101 () {42 vars in 812 bytes} [Sun Mar 22 14:21:55 2020] GET / => generated 56983 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13225|app: 0|req: 7/16] 27.247.45.101 () {42 vars in 812 bytes} [Sun Mar 22 14:21:56 2020] GET / => generated 56983 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.18 (64bit) on [Sun Mar 22 14:22:09 2020] ***
+compiled with version: 7.5.0 on 22 March 2020 06:50:02
+os: Linux-4.15.0-1057-aws #59-Ubuntu SMP Wed Dec 4 10:02:00 UTC 2019
+nodename: ip-172-31-34-232
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/deploy/natertech_pos/natertech_pos/uwsgi_set
+writing pidfile to /home/deploy/natertech_pos/natertech_pos/uwsgi_set/test.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/deploy/natertech_pos
+your processes number limit is 3840
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+probably another instance of uWSGI is running on the same address (127.0.0.1:8001).
+bind(): Address already in use [core/socket.c line 769]
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13224|app: 0|req: 10/17] 27.247.45.101 () {42 vars in 812 bytes} [Sun Mar 22 14:22:11 2020] GET / => generated 56983 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13225|app: 0|req: 8/18] 27.247.45.101 () {42 vars in 812 bytes} [Sun Mar 22 14:22:12 2020] GET / => generated 56983 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13224|app: 0|req: 11/19] 27.247.45.101 () {42 vars in 812 bytes} [Sun Mar 22 14:24:16 2020] GET / => generated 56983 bytes in 28 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13225|app: 0|req: 9/20] 27.247.45.101 () {42 vars in 812 bytes} [Sun Mar 22 14:24:17 2020] GET / => generated 56983 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13224|app: 0|req: 12/21] 27.247.45.101 () {42 vars in 812 bytes} [Sun Mar 22 14:24:58 2020] GET / => generated 56983 bytes in 30 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13225|app: 0|req: 10/22] 27.247.45.101 () {42 vars in 812 bytes} [Sun Mar 22 14:24:59 2020] GET / => generated 56983 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13224|app: 0|req: 13/23] 27.247.45.101 () {44 vars in 887 bytes} [Sun Mar 22 14:28:11 2020] GET / => generated 57164 bytes in 32 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13225|app: 0|req: 11/24] 27.247.45.101 () {44 vars in 887 bytes} [Sun Mar 22 14:28:13 2020] GET / => generated 57164 bytes in 30 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13224|app: 0|req: 14/25] 27.247.45.101 () {44 vars in 887 bytes} [Sun Mar 22 14:28:36 2020] GET / => generated 57164 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13225|app: 0|req: 12/26] 27.247.45.101 () {44 vars in 887 bytes} [Sun Mar 22 14:28:36 2020] GET / => generated 57164 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13224|app: 0|req: 15/27] 27.247.45.101 () {44 vars in 887 bytes} [Sun Mar 22 14:31:26 2020] GET / => generated 57164 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13225|app: 0|req: 13/28] 27.247.45.101 () {44 vars in 887 bytes} [Sun Mar 22 14:31:30 2020] GET / => generated 57164 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13224|app: 0|req: 16/29] 27.247.45.101 () {44 vars in 887 bytes} [Sun Mar 22 14:31:31 2020] GET / => generated 57164 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13225|app: 0|req: 14/30] 27.247.45.101 () {44 vars in 887 bytes} [Sun Mar 22 14:31:31 2020] GET / => generated 57164 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13224|app: 0|req: 17/31] 27.247.45.101 () {44 vars in 887 bytes} [Sun Mar 22 14:31:54 2020] GET / => generated 57164 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.18 (64bit) on [Sun Mar 22 14:32:46 2020] ***
+compiled with version: 7.5.0 on 22 March 2020 06:50:02
+os: Linux-4.15.0-1057-aws #59-Ubuntu SMP Wed Dec 4 10:02:00 UTC 2019
+nodename: ip-172-31-34-232
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/deploy/natertech_pos/natertech_pos
+writing pidfile to /home/deploy/natertech_pos/natertech_pos/uwsgi_set/test.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/deploy/natertech_pos
+your processes number limit is 3840
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+probably another instance of uWSGI is running on the same address (127.0.0.1:8001).
+bind(): Address already in use [core/socket.c line 769]
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13224|app: 0|req: 18/32] 27.247.45.101 () {44 vars in 887 bytes} [Sun Mar 22 14:32:50 2020] GET / => generated 57164 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13225|app: 0|req: 15/33] 27.247.45.101 () {44 vars in 887 bytes} [Sun Mar 22 14:32:51 2020] GET / => generated 57164 bytes in 30 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13224|app: 0|req: 19/34] 27.247.45.101 () {44 vars in 887 bytes} [Sun Mar 22 14:33:04 2020] GET / => generated 57164 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13225|app: 0|req: 16/35] 27.247.45.101 () {44 vars in 887 bytes} [Sun Mar 22 14:33:04 2020] GET / => generated 57164 bytes in 30 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13224|app: 0|req: 20/36] 27.247.45.101 () {44 vars in 887 bytes} [Sun Mar 22 14:35:22 2020] GET / => generated 57164 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13225|app: 0|req: 17/37] 27.247.45.101 () {44 vars in 887 bytes} [Sun Mar 22 14:35:24 2020] GET / => generated 57164 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13224|app: 0|req: 21/38] 27.247.45.101 () {44 vars in 887 bytes} [Sun Mar 22 14:35:25 2020] GET / => generated 57164 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'nater-pos.natertek.com'. You may need to add 'nater-pos.natertek.com' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 13225|app: 0|req: 18/39] 27.247.45.101 () {44 vars in 887 bytes} [Sun Mar 22 14:35:25 2020] GET / => generated 57164 bytes in 29 msecs (HTTP/1.1 400) 2 headers in 86 bytes (1 switches on core 0)
+...brutally killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/deploy/natertech_pos/natertech_pos/uwsgi_set
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (127.0.0.1:8001)
+running /usr/local/bin/uwsgi
+[uWSGI] getting INI configuration from site_uwsgi.ini
+*** Starting uWSGI 2.0.18 (64bit) on [Sun Mar 22 14:39:05 2020] ***
+compiled with version: 7.5.0 on 22 March 2020 06:50:02
+os: Linux-4.15.0-1057-aws #59-Ubuntu SMP Wed Dec 4 10:02:00 UTC 2019
+nodename: ip-172-31-34-232
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/deploy/natertech_pos/natertech_pos/uwsgi_set
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/deploy/natertech_pos
+your processes number limit is 3840
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited INET address 127.0.0.1:8001 fd 3
+Python version: 3.6.9 (default, Nov  7 2019, 10:44:02)  [GCC 8.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x555fb2541140
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 218760 bytes (213 KB) for 2 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x555fb2541140 pid: 13222 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 13222)
+spawned uWSGI worker 1 (pid: 14117, cores: 1)
+spawned uWSGI worker 2 (pid: 14118, cores: 1)
+[pid: 14118|app: 0|req: 1/1] 27.247.45.101 () {44 vars in 887 bytes} [Sun Mar 22 14:39:10 2020] GET / => generated 2859 bytes in 44 msecs (HTTP/1.1 200) 4 headers in 137 bytes (1 switches on core 0)
+Not Found: /extensions/multiple-sort/bootstrap-table-multiple-sort.js
+[pid: 14117|app: 0|req: 1/2] 27.247.45.101 () {42 vars in 860 bytes} [Sun Mar 22 14:39:10 2020] GET /extensions/multiple-sort/bootstrap-table-multiple-sort.js => generated 2724 bytes in 22 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14118|app: 0|req: 2/3] 27.247.45.101 () {44 vars in 916 bytes} [Sun Mar 22 14:39:14 2020] GET /product => generated 0 bytes in 1 msecs (HTTP/1.1 301) 4 headers in 147 bytes (1 switches on core 0)
+all success
+[pid: 14118|app: 0|req: 3/4] 27.247.45.101 () {44 vars in 918 bytes} [Sun Mar 22 14:39:14 2020] GET /product/ => generated 13651 bytes in 36 msecs (HTTP/1.1 200) 6 headers in 320 bytes (1 switches on core 0)
+Not Found: /product/extensions/multiple-sort/bootstrap-table-multiple-sort.js
+[pid: 14117|app: 0|req: 2/5] 27.247.45.101 () {44 vars in 973 bytes} [Sun Mar 22 14:39:15 2020] GET /product/extensions/multiple-sort/bootstrap-table-multiple-sort.js => generated 2748 bytes in 4 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14118|app: 0|req: 4/6] 27.247.45.101 () {46 vars in 999 bytes} [Sun Mar 22 14:39:17 2020] GET / => generated 2859 bytes in 2 msecs (HTTP/1.1 200) 4 headers in 137 bytes (1 switches on core 0)
+Not Found: /extensions/multiple-sort/bootstrap-table-multiple-sort.js
+[pid: 14117|app: 0|req: 3/7] 27.247.45.101 () {44 vars in 949 bytes} [Sun Mar 22 14:39:17 2020] GET /extensions/multiple-sort/bootstrap-table-multiple-sort.js => generated 2724 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14118|app: 0|req: 5/8] 27.247.45.101 () {46 vars in 1001 bytes} [Sun Mar 22 14:39:20 2020] GET /admin => generated 0 bytes in 1 msecs (HTTP/1.1 301) 4 headers in 145 bytes (1 switches on core 0)
+[pid: 14118|app: 0|req: 6/9] 27.247.45.101 () {46 vars in 1003 bytes} [Sun Mar 22 14:39:20 2020] GET /admin/ => generated 0 bytes in 32 msecs (HTTP/1.1 302) 8 headers in 301 bytes (1 switches on core 0)
+[pid: 14117|app: 0|req: 4/10] 27.247.45.101 () {46 vars in 1040 bytes} [Sun Mar 22 14:39:20 2020] GET /admin/login/?next=/admin/ => generated 1913 bytes in 67 msecs (HTTP/1.1 200) 8 headers in 431 bytes (1 switches on core 0)
+Not Found: /static/admin/css/base.css
+[pid: 14118|app: 0|req: 7/11] 27.247.45.101 () {44 vars in 925 bytes} [Sun Mar 22 14:39:20 2020] GET /static/admin/css/base.css => generated 2628 bytes in 4 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/css/login.css
+[pid: 14117|app: 0|req: 5/12] 27.247.45.101 () {44 vars in 927 bytes} [Sun Mar 22 14:39:20 2020] GET /static/admin/css/login.css => generated 2631 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/css/responsive.css
+[pid: 14118|app: 0|req: 8/13] 27.247.45.101 () {44 vars in 937 bytes} [Sun Mar 22 14:39:20 2020] GET /static/admin/css/responsive.css => generated 2646 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14117|app: 0|req: 6/14] 27.247.45.101 () {54 vars in 1257 bytes} [Sun Mar 22 14:39:27 2020] POST /admin/login/?next=/admin/ => generated 2078 bytes in 144 msecs (HTTP/1.1 200) 8 headers in 431 bytes (1 switches on core 0)
+Not Found: /static/admin/css/base.css
+[pid: 14118|app: 0|req: 9/15] 27.247.45.101 () {44 vars in 925 bytes} [Sun Mar 22 14:39:27 2020] GET /static/admin/css/base.css => generated 2628 bytes in 6 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/responsive.css
+[pid: 14117|app: 0|req: 7/17] 27.247.45.101 () {44 vars in 937 bytes} [Sun Mar 22 14:39:27 2020] GET /static/admin/css/responsive.css => generated 2646 bytes in 6 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14118|app: 0|req: 10/17] 27.247.45.101 () {44 vars in 927 bytes} [Sun Mar 22 14:39:27 2020] GET /static/admin/css/login.css => generated 2631 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14117|app: 0|req: 8/18] 27.247.45.101 () {54 vars in 1257 bytes} [Sun Mar 22 14:39:47 2020] POST /admin/login/?next=/admin/ => generated 2078 bytes in 138 msecs (HTTP/1.1 200) 8 headers in 431 bytes (1 switches on core 0)
+Not Found: /static/admin/css/base.css
+[pid: 14118|app: 0|req: 11/19] 27.247.45.101 () {44 vars in 925 bytes} [Sun Mar 22 14:39:47 2020] GET /static/admin/css/base.css => generated 2628 bytes in 4 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/login.css
+[pid: 14118|app: 0|req: 12/21] 27.247.45.101 () {44 vars in 937 bytes} [Sun Mar 22 14:39:47 2020] GET /static/admin/css/responsive.css => generated 2646 bytes in 5 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14117|app: 0|req: 9/21] 27.247.45.101 () {44 vars in 927 bytes} [Sun Mar 22 14:39:47 2020] GET /static/admin/css/login.css => generated 2631 bytes in 6 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14117|app: 0|req: 10/22] 27.247.45.101 () {54 vars in 1257 bytes} [Sun Mar 22 14:39:53 2020] POST /admin/login/?next=/admin/ => generated 2078 bytes in 137 msecs (HTTP/1.1 200) 8 headers in 431 bytes (1 switches on core 0)
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/responsive.css
+[pid: 14118|app: 0|req: 13/23] 27.247.45.101 () {44 vars in 927 bytes} [Sun Mar 22 14:39:54 2020] GET /static/admin/css/login.css => generated 2631 bytes in 7 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/css/base.css
+[pid: 14117|app: 0|req: 11/25] 27.247.45.101 () {44 vars in 937 bytes} [Sun Mar 22 14:39:54 2020] GET /static/admin/css/responsive.css => generated 2646 bytes in 6 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14118|app: 0|req: 14/25] 27.247.45.101 () {44 vars in 925 bytes} [Sun Mar 22 14:39:54 2020] GET /static/admin/css/base.css => generated 2628 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14117|app: 0|req: 12/26] 27.247.45.101 () {54 vars in 1257 bytes} [Sun Mar 22 14:41:40 2020] POST /admin/login/?next=/admin/ => generated 0 bytes in 166 msecs (HTTP/1.1 302) 10 headers in 595 bytes (1 switches on core 0)
+[pid: 14118|app: 0|req: 15/27] 27.247.45.101 () {48 vars in 1103 bytes} [Sun Mar 22 14:41:40 2020] GET /admin/ => generated 6459 bytes in 30 msecs (HTTP/1.1 200) 7 headers in 263 bytes (1 switches on core 0)
+Not Found: /static/admin/css/base.css
+[pid: 14117|app: 0|req: 13/28] 27.247.45.101 () {44 vars in 950 bytes} [Sun Mar 22 14:41:40 2020] GET /static/admin/css/base.css => generated 2628 bytes in 4 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/css/dashboard.css
+[pid: 14118|app: 0|req: 16/29] 27.247.45.101 () {44 vars in 960 bytes} [Sun Mar 22 14:41:40 2020] GET /static/admin/css/dashboard.css => generated 2643 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/css/responsive.css
+[pid: 14117|app: 0|req: 14/30] 27.247.45.101 () {44 vars in 962 bytes} [Sun Mar 22 14:41:40 2020] GET /static/admin/css/responsive.css => generated 2646 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14118|app: 0|req: 17/31] 27.247.45.101 () {44 vars in 1013 bytes} [Sun Mar 22 14:41:55 2020] GET /sold/testing => generated 0 bytes in 0 msecs (HTTP/1.1 301) 4 headers in 152 bytes (1 switches on core 0)
+Product matching query does not exist.
+[pid: 14117|app: 0|req: 15/32] 27.247.45.101 () {44 vars in 1015 bytes} [Sun Mar 22 14:41:55 2020] GET /sold/testing/ => generated 2952 bytes in 6 msecs (HTTP/1.1 200) 6 headers in 319 bytes (1 switches on core 0)
+Not Found: /sold/testing/extensions/multiple-sort/bootstrap-table-multiple-sort.js
+[pid: 14118|app: 0|req: 18/33] 27.247.45.101 () {44 vars in 1032 bytes} [Sun Mar 22 14:41:55 2020] GET /sold/testing/extensions/multiple-sort/bootstrap-table-multiple-sort.js => generated 2763 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14117|app: 0|req: 16/34] 27.247.45.101 () {46 vars in 1072 bytes} [Sun Mar 22 14:42:02 2020] GET /admin/ => generated 6459 bytes in 26 msecs (HTTP/1.1 200) 7 headers in 263 bytes (1 switches on core 0)
+[pid: 14118|app: 0|req: 19/35] 27.247.45.101 () {46 vars in 1093 bytes} [Sun Mar 22 14:42:07 2020] GET /admin/StockSystem/product/ => generated 9754 bytes in 71 msecs (HTTP/1.1 200) 8 headers in 431 bytes (1 switches on core 0)
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/changelists.css
+[pid: 14117|app: 0|req: 17/36] 27.247.45.101 () {44 vars in 970 bytes} [Sun Mar 22 14:42:08 2020] GET /static/admin/css/base.css => generated 2628 bytes in 7 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14118|app: 0|req: 20/37] 27.247.45.101 () {44 vars in 984 bytes} [Sun Mar 22 14:42:08 2020] GET /static/admin/css/changelists.css => generated 2649 bytes in 8 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14117|app: 0|req: 18/38] 27.247.45.101 () {44 vars in 931 bytes} [Sun Mar 22 14:42:08 2020] GET /admin/jsi18n/ => generated 3223 bytes in 6 msecs (HTTP/1.1 200) 5 headers in 159 bytes (1 switches on core 0)
+Not Found: /static/admin/js/core.js
+[pid: 14118|app: 0|req: 21/39] 27.247.45.101 () {44 vars in 951 bytes} [Sun Mar 22 14:42:08 2020] GET /static/admin/js/core.js => generated 2622 bytes in 6 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/vendor/jquery/jquery.js
+Not Found: /static/admin/css/responsive.css
+[pid: 14118|app: 0|req: 22/40] 27.247.45.101 () {44 vars in 983 bytes} [Sun Mar 22 14:42:08 2020] GET /static/admin/js/vendor/jquery/jquery.js => generated 2670 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/jquery.init.js
+[pid: 14117|app: 0|req: 19/41] 27.247.45.101 () {44 vars in 982 bytes} [Sun Mar 22 14:42:08 2020] GET /static/admin/css/responsive.css => generated 2646 bytes in 9 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/actions.js
+[pid: 14118|app: 0|req: 23/43] 27.247.45.101 () {44 vars in 965 bytes} [Sun Mar 22 14:42:08 2020] GET /static/admin/js/jquery.init.js => generated 2643 bytes in 5 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14117|app: 0|req: 20/43] 27.247.45.101 () {44 vars in 957 bytes} [Sun Mar 22 14:42:08 2020] GET /static/admin/js/actions.js => generated 2631 bytes in 2 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+[pid: 14118|app: 0|req: 24/44] 27.247.45.101 () {44 vars in 995 bytes} [Sun Mar 22 14:42:08 2020] GET /static/admin/js/admin/RelatedObjectLookups.js => generated 2688 bytes in 2 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/urlify.js
+[pid: 14117|app: 0|req: 21/45] 27.247.45.101 () {44 vars in 955 bytes} [Sun Mar 22 14:42:08 2020] GET /static/admin/js/urlify.js => generated 2628 bytes in 5 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/prepopulate.js
+[pid: 14118|app: 0|req: 25/46] 27.247.45.101 () {44 vars in 965 bytes} [Sun Mar 22 14:42:08 2020] GET /static/admin/js/prepopulate.js => generated 2643 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/core.js
+[pid: 14117|app: 0|req: 22/47] 27.247.45.101 () {44 vars in 951 bytes} [Sun Mar 22 14:42:08 2020] GET /static/admin/js/core.js => generated 2622 bytes in 5 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+[pid: 14118|app: 0|req: 26/48] 27.247.45.101 () {44 vars in 987 bytes} [Sun Mar 22 14:42:08 2020] GET /static/admin/js/vendor/xregexp/xregexp.js => generated 2676 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+[pid: 14117|app: 0|req: 23/49] 27.247.45.101 () {44 vars in 995 bytes} [Sun Mar 22 14:42:08 2020] GET /static/admin/js/admin/RelatedObjectLookups.js => generated 2688 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/actions.js
+[pid: 14118|app: 0|req: 27/50] 27.247.45.101 () {44 vars in 957 bytes} [Sun Mar 22 14:42:08 2020] GET /static/admin/js/actions.js => generated 2631 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/urlify.js
+[pid: 14117|app: 0|req: 24/51] 27.247.45.101 () {44 vars in 955 bytes} [Sun Mar 22 14:42:08 2020] GET /static/admin/js/urlify.js => generated 2628 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/prepopulate.js
+[pid: 14118|app: 0|req: 28/52] 27.247.45.101 () {44 vars in 965 bytes} [Sun Mar 22 14:42:08 2020] GET /static/admin/js/prepopulate.js => generated 2643 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+[pid: 14117|app: 0|req: 25/53] 27.247.45.101 () {44 vars in 987 bytes} [Sun Mar 22 14:42:08 2020] GET /static/admin/js/vendor/xregexp/xregexp.js => generated 2676 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/css/responsive.css
+[pid: 14118|app: 0|req: 29/54] 27.247.45.101 () {44 vars in 982 bytes} [Sun Mar 22 14:42:08 2020] GET /static/admin/css/responsive.css => generated 2646 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14117|app: 0|req: 26/55] 27.247.45.101 () {46 vars in 1072 bytes} [Sun Mar 22 14:42:14 2020] GET /admin/ => generated 6459 bytes in 22 msecs (HTTP/1.1 200) 7 headers in 263 bytes (1 switches on core 0)
+[pid: 14118|app: 0|req: 30/56] 27.247.45.101 () {44 vars in 1007 bytes} [Sun Mar 22 14:42:19 2020] GET /sold/asdf => generated 0 bytes in 1 msecs (HTTP/1.1 301) 4 headers in 149 bytes (1 switches on core 0)
+Product matching query does not exist.
+[pid: 14118|app: 0|req: 31/57] 27.247.45.101 () {44 vars in 1009 bytes} [Sun Mar 22 14:42:20 2020] GET /sold/asdf/ => generated 2952 bytes in 5 msecs (HTTP/1.1 200) 6 headers in 319 bytes (1 switches on core 0)
+Not Found: /sold/asdf/extensions/multiple-sort/bootstrap-table-multiple-sort.js
+[pid: 14117|app: 0|req: 27/58] 27.247.45.101 () {44 vars in 1023 bytes} [Sun Mar 22 14:42:20 2020] GET /sold/asdf/extensions/multiple-sort/bootstrap-table-multiple-sort.js => generated 2754 bytes in 4 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14118|app: 0|req: 32/59] 27.247.45.101 () {46 vars in 1072 bytes} [Sun Mar 22 14:42:22 2020] GET /admin/ => generated 6459 bytes in 23 msecs (HTTP/1.1 200) 7 headers in 263 bytes (1 switches on core 0)
+[pid: 14117|app: 0|req: 28/60] 27.247.45.101 () {46 vars in 1093 bytes} [Sun Mar 22 14:42:24 2020] GET /admin/StockSystem/product/ => generated 9754 bytes in 60 msecs (HTTP/1.1 200) 8 headers in 431 bytes (1 switches on core 0)
+Not Found: /static/admin/css/changelists.css
+[pid: 14118|app: 0|req: 33/61] 27.247.45.101 () {44 vars in 984 bytes} [Sun Mar 22 14:42:24 2020] GET /static/admin/css/changelists.css => generated 2649 bytes in 6 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/vendor/jquery/jquery.js
+Not Found: /static/admin/css/base.css
+[pid: 14117|app: 0|req: 29/62] 27.247.45.101 () {44 vars in 970 bytes} [Sun Mar 22 14:42:24 2020] GET /static/admin/css/base.css => generated 2628 bytes in 7 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14118|app: 0|req: 34/63] 27.247.45.101 () {44 vars in 983 bytes} [Sun Mar 22 14:42:24 2020] GET /static/admin/js/vendor/jquery/jquery.js => generated 2670 bytes in 7 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/jquery.init.js
+[pid: 14118|app: 0|req: 35/64] 27.247.45.101 () {44 vars in 965 bytes} [Sun Mar 22 14:42:24 2020] GET /static/admin/js/jquery.init.js => generated 2643 bytes in 2 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/core.js
+[pid: 14117|app: 0|req: 30/65] 27.247.45.101 () {44 vars in 931 bytes} [Sun Mar 22 14:42:24 2020] GET /admin/jsi18n/ => generated 3223 bytes in 11 msecs (HTTP/1.1 200) 5 headers in 159 bytes (1 switches on core 0)
+[pid: 14118|app: 0|req: 36/66] 27.247.45.101 () {44 vars in 951 bytes} [Sun Mar 22 14:42:24 2020] GET /static/admin/js/core.js => generated 2622 bytes in 4 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/css/responsive.css
+[pid: 14117|app: 0|req: 31/67] 27.247.45.101 () {44 vars in 982 bytes} [Sun Mar 22 14:42:24 2020] GET /static/admin/css/responsive.css => generated 2646 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+[pid: 14118|app: 0|req: 37/68] 27.247.45.101 () {44 vars in 995 bytes} [Sun Mar 22 14:42:24 2020] GET /static/admin/js/admin/RelatedObjectLookups.js => generated 2688 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/actions.js
+Not Found: /static/admin/js/prepopulate.js
+[pid: 14117|app: 0|req: 32/69] 27.247.45.101 () {44 vars in 957 bytes} [Sun Mar 22 14:42:24 2020] GET /static/admin/js/actions.js => generated 2631 bytes in 5 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14118|app: 0|req: 38/70] 27.247.45.101 () {44 vars in 965 bytes} [Sun Mar 22 14:42:24 2020] GET /static/admin/js/prepopulate.js => generated 2643 bytes in 5 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+Not Found: /static/admin/js/urlify.js
+[pid: 14117|app: 0|req: 33/71] 27.247.45.101 () {44 vars in 955 bytes} [Sun Mar 22 14:42:24 2020] GET /static/admin/js/urlify.js => generated 2628 bytes in 6 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14118|app: 0|req: 39/72] 27.247.45.101 () {44 vars in 987 bytes} [Sun Mar 22 14:42:24 2020] GET /static/admin/js/vendor/xregexp/xregexp.js => generated 2676 bytes in 4 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/vendor/jquery/jquery.js
+[pid: 14117|app: 0|req: 34/73] 27.247.45.101 () {44 vars in 983 bytes} [Sun Mar 22 14:42:24 2020] GET /static/admin/js/vendor/jquery/jquery.js => generated 2670 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/jquery.init.js
+[pid: 14118|app: 0|req: 40/74] 27.247.45.101 () {44 vars in 965 bytes} [Sun Mar 22 14:42:24 2020] GET /static/admin/js/jquery.init.js => generated 2643 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/core.js
+[pid: 14117|app: 0|req: 35/75] 27.247.45.101 () {44 vars in 951 bytes} [Sun Mar 22 14:42:24 2020] GET /static/admin/js/core.js => generated 2622 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+[pid: 14118|app: 0|req: 41/76] 27.247.45.101 () {44 vars in 995 bytes} [Sun Mar 22 14:42:24 2020] GET /static/admin/js/admin/RelatedObjectLookups.js => generated 2688 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/actions.js
+[pid: 14117|app: 0|req: 36/77] 27.247.45.101 () {44 vars in 957 bytes} [Sun Mar 22 14:42:24 2020] GET /static/admin/js/actions.js => generated 2631 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/urlify.js
+[pid: 14118|app: 0|req: 42/78] 27.247.45.101 () {44 vars in 955 bytes} [Sun Mar 22 14:42:24 2020] GET /static/admin/js/urlify.js => generated 2628 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/prepopulate.js
+[pid: 14117|app: 0|req: 37/79] 27.247.45.101 () {44 vars in 965 bytes} [Sun Mar 22 14:42:25 2020] GET /static/admin/js/prepopulate.js => generated 2643 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+[pid: 14118|app: 0|req: 43/80] 27.247.45.101 () {44 vars in 987 bytes} [Sun Mar 22 14:42:25 2020] GET /static/admin/js/vendor/xregexp/xregexp.js => generated 2676 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/css/responsive.css
+[pid: 14117|app: 0|req: 38/81] 27.247.45.101 () {44 vars in 982 bytes} [Sun Mar 22 14:42:25 2020] GET /static/admin/css/responsive.css => generated 2646 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14118|app: 0|req: 44/82] 27.247.45.101 () {46 vars in 1133 bytes} [Sun Mar 22 14:42:27 2020] GET /admin/StockSystem/product/17/change/ => generated 12652 bytes in 80 msecs (HTTP/1.1 200) 8 headers in 432 bytes (1 switches on core 0)
+Not Found: /static/admin/css/base.css
+[pid: 14117|app: 0|req: 39/83] 27.247.45.101 () {44 vars in 980 bytes} [Sun Mar 22 14:42:27 2020] GET /static/admin/css/base.css => generated 2628 bytes in 4 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/css/forms.css
+Not Found: /static/admin/js/vendor/jquery/jquery.js
+[pid: 14118|app: 0|req: 45/85] 27.247.45.101 () {44 vars in 982 bytes} [Sun Mar 22 14:42:27 2020] GET /static/admin/css/forms.css => generated 2631 bytes in 6 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14117|app: 0|req: 40/85] 27.247.45.101 () {44 vars in 993 bytes} [Sun Mar 22 14:42:27 2020] GET /static/admin/js/vendor/jquery/jquery.js => generated 2670 bytes in 5 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/jquery.init.js
+[pid: 14117|app: 0|req: 41/86] 27.247.45.101 () {44 vars in 975 bytes} [Sun Mar 22 14:42:27 2020] GET /static/admin/js/jquery.init.js => generated 2643 bytes in 2 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/core.js
+[pid: 14118|app: 0|req: 46/87] 27.247.45.101 () {44 vars in 941 bytes} [Sun Mar 22 14:42:27 2020] GET /admin/jsi18n/ => generated 3223 bytes in 11 msecs (HTTP/1.1 200) 5 headers in 159 bytes (1 switches on core 0)
+[pid: 14117|app: 0|req: 42/88] 27.247.45.101 () {44 vars in 961 bytes} [Sun Mar 22 14:42:27 2020] GET /static/admin/js/core.js => generated 2622 bytes in 5 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/css/responsive.css
+[pid: 14118|app: 0|req: 47/89] 27.247.45.101 () {44 vars in 992 bytes} [Sun Mar 22 14:42:28 2020] GET /static/admin/css/responsive.css => generated 2646 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+[pid: 14117|app: 0|req: 43/90] 27.247.45.101 () {44 vars in 1005 bytes} [Sun Mar 22 14:42:28 2020] GET /static/admin/js/admin/RelatedObjectLookups.js => generated 2688 bytes in 5 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/actions.js
+Not Found: /static/admin/js/urlify.js
+[pid: 14118|app: 0|req: 48/91] 27.247.45.101 () {44 vars in 967 bytes} [Sun Mar 22 14:42:28 2020] GET /static/admin/js/actions.js => generated 2631 bytes in 6 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/prepopulate.js
+[pid: 14117|app: 0|req: 44/92] 27.247.45.101 () {44 vars in 965 bytes} [Sun Mar 22 14:42:28 2020] GET /static/admin/js/urlify.js => generated 2628 bytes in 7 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+[pid: 14118|app: 0|req: 49/93] 27.247.45.101 () {44 vars in 975 bytes} [Sun Mar 22 14:42:28 2020] GET /static/admin/js/prepopulate.js => generated 2643 bytes in 6 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14117|app: 0|req: 45/94] 27.247.45.101 () {44 vars in 997 bytes} [Sun Mar 22 14:42:28 2020] GET /static/admin/js/vendor/xregexp/xregexp.js => generated 2676 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/vendor/jquery/jquery.js
+[pid: 14118|app: 0|req: 50/95] 27.247.45.101 () {44 vars in 993 bytes} [Sun Mar 22 14:42:28 2020] GET /static/admin/js/vendor/jquery/jquery.js => generated 2670 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/img/icon-changelink.svg
+[pid: 14117|app: 0|req: 46/96] 27.247.45.101 () {44 vars in 1023 bytes} [Sun Mar 22 14:42:28 2020] GET /static/admin/img/icon-changelink.svg => generated 2661 bytes in 6 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/img/icon-addlink.svg
+[pid: 14118|app: 0|req: 51/97] 27.247.45.101 () {44 vars in 1017 bytes} [Sun Mar 22 14:42:28 2020] GET /static/admin/img/icon-addlink.svg => generated 2652 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/change_form.js
+Not Found: /static/admin/js/jquery.init.js
+[pid: 14117|app: 0|req: 47/98] 27.247.45.101 () {44 vars in 975 bytes} [Sun Mar 22 14:42:28 2020] GET /static/admin/js/jquery.init.js => generated 2643 bytes in 7 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/prepopulate_init.js
+[pid: 14118|app: 0|req: 52/99] 27.247.45.101 () {44 vars in 975 bytes} [Sun Mar 22 14:42:28 2020] GET /static/admin/js/change_form.js => generated 2643 bytes in 7 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14117|app: 0|req: 48/100] 27.247.45.101 () {44 vars in 985 bytes} [Sun Mar 22 14:42:28 2020] GET /static/admin/js/prepopulate_init.js => generated 2658 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/core.js
+[pid: 14118|app: 0|req: 53/101] 27.247.45.101 () {44 vars in 961 bytes} [Sun Mar 22 14:42:28 2020] GET /static/admin/js/core.js => generated 2622 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+[pid: 14117|app: 0|req: 49/102] 27.247.45.101 () {44 vars in 1005 bytes} [Sun Mar 22 14:42:28 2020] GET /static/admin/js/admin/RelatedObjectLookups.js => generated 2688 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/actions.js
+[pid: 14118|app: 0|req: 54/103] 27.247.45.101 () {44 vars in 967 bytes} [Sun Mar 22 14:42:28 2020] GET /static/admin/js/actions.js => generated 2631 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/urlify.js
+[pid: 14117|app: 0|req: 50/104] 27.247.45.101 () {44 vars in 965 bytes} [Sun Mar 22 14:42:28 2020] GET /static/admin/js/urlify.js => generated 2628 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/prepopulate.js
+[pid: 14118|app: 0|req: 55/105] 27.247.45.101 () {44 vars in 975 bytes} [Sun Mar 22 14:42:28 2020] GET /static/admin/js/prepopulate.js => generated 2643 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+[pid: 14117|app: 0|req: 51/106] 27.247.45.101 () {44 vars in 997 bytes} [Sun Mar 22 14:42:28 2020] GET /static/admin/js/vendor/xregexp/xregexp.js => generated 2676 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/css/responsive.css
+[pid: 14118|app: 0|req: 56/107] 27.247.45.101 () {44 vars in 992 bytes} [Sun Mar 22 14:42:28 2020] GET /static/admin/css/responsive.css => generated 2646 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/img/icon-addlink.svg
+[pid: 14117|app: 0|req: 52/108] 27.247.45.101 () {44 vars in 1017 bytes} [Sun Mar 22 14:42:28 2020] GET /static/admin/img/icon-addlink.svg => generated 2652 bytes in 5 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/img/icon-changelink.svg
+[pid: 14118|app: 0|req: 57/109] 27.247.45.101 () {44 vars in 1023 bytes} [Sun Mar 22 14:42:28 2020] GET /static/admin/img/icon-changelink.svg => generated 2661 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/change_form.js
+[pid: 14117|app: 0|req: 53/110] 27.247.45.101 () {44 vars in 975 bytes} [Sun Mar 22 14:42:28 2020] GET /static/admin/js/change_form.js => generated 2643 bytes in 2 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+Not Found: /static/admin/js/prepopulate_init.js
+[pid: 14118|app: 0|req: 58/111] 27.247.45.101 () {44 vars in 985 bytes} [Sun Mar 22 14:42:29 2020] GET /static/admin/js/prepopulate_init.js => generated 2658 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14117|app: 0|req: 54/112] 27.247.45.101 () {44 vars in 1013 bytes} [Sun Mar 22 14:42:40 2020] GET /sold/Testing => generated 0 bytes in 1 msecs (HTTP/1.1 301) 4 headers in 152 bytes (1 switches on core 0)
+[pid: 14117|app: 0|req: 55/113] 27.247.45.101 () {44 vars in 1015 bytes} [Sun Mar 22 14:42:40 2020] GET /sold/Testing/ => generated 4909 bytes in 26 msecs (HTTP/1.1 200) 6 headers in 319 bytes (1 switches on core 0)
+Not Found: /sold/Testing/extensions/multiple-sort/bootstrap-table-multiple-sort.js
+[pid: 14118|app: 0|req: 59/114] 27.247.45.101 () {44 vars in 1032 bytes} [Sun Mar 22 14:42:40 2020] GET /sold/Testing/extensions/multiple-sort/bootstrap-table-multiple-sort.js => generated 2763 bytes in 4 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+all success
+[pid: 14117|app: 0|req: 56/115] 27.247.45.101 () {44 vars in 1005 bytes} [Sun Mar 22 14:42:53 2020] GET /product/ => generated 13651 bytes in 26 msecs (HTTP/1.1 200) 6 headers in 320 bytes (1 switches on core 0)
+Not Found: /product/extensions/multiple-sort/bootstrap-table-multiple-sort.js
+[pid: 14118|app: 0|req: 60/116] 27.247.45.101 () {44 vars in 1017 bytes} [Sun Mar 22 14:42:54 2020] GET /product/extensions/multiple-sort/bootstrap-table-multiple-sort.js => generated 2748 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14117|app: 0|req: 57/117] 27.247.45.101 () {46 vars in 1081 bytes} [Sun Mar 22 14:42:58 2020] GET /product/MP-2020-001 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 4 headers in 159 bytes (1 switches on core 0)
+get success
+[pid: 14118|app: 0|req: 61/118] 27.247.45.101 () {46 vars in 1083 bytes} [Sun Mar 22 14:42:58 2020] GET /product/MP-2020-001/ => generated 2968 bytes in 7 msecs (HTTP/1.1 200) 6 headers in 319 bytes (1 switches on core 0)
+Not Found: /product/MP-2020-001/extensions/multiple-sort/bootstrap-table-multiple-sort.js
+[pid: 14117|app: 0|req: 58/119] 27.247.45.101 () {44 vars in 1053 bytes} [Sun Mar 22 14:42:58 2020] GET /product/MP-2020-001/extensions/multiple-sort/bootstrap-table-multiple-sort.js => generated 2784 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14118|app: 0|req: 62/120] 27.247.45.101 () {46 vars in 1081 bytes} [Sun Mar 22 14:43:01 2020] GET /product/MP-2020-003 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 4 headers in 159 bytes (1 switches on core 0)
+get success
+[pid: 14117|app: 0|req: 59/121] 27.247.45.101 () {46 vars in 1083 bytes} [Sun Mar 22 14:43:01 2020] GET /product/MP-2020-003/ => generated 2967 bytes in 7 msecs (HTTP/1.1 200) 6 headers in 319 bytes (1 switches on core 0)
+Not Found: /product/MP-2020-003/extensions/multiple-sort/bootstrap-table-multiple-sort.js
+[pid: 14118|app: 0|req: 63/122] 27.247.45.101 () {44 vars in 1053 bytes} [Sun Mar 22 14:43:02 2020] GET /product/MP-2020-003/extensions/multiple-sort/bootstrap-table-multiple-sort.js => generated 2784 bytes in 4 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14117|app: 0|req: 60/123] 27.247.45.101 () {46 vars in 1081 bytes} [Sun Mar 22 14:43:06 2020] GET /product/MP-2020-008 => generated 0 bytes in 1 msecs (HTTP/1.1 301) 4 headers in 159 bytes (1 switches on core 0)
+get success
+[pid: 14118|app: 0|req: 64/124] 27.247.45.101 () {46 vars in 1083 bytes} [Sun Mar 22 14:43:06 2020] GET /product/MP-2020-008/ => generated 2967 bytes in 6 msecs (HTTP/1.1 200) 6 headers in 319 bytes (1 switches on core 0)
+Not Found: /product/MP-2020-008/extensions/multiple-sort/bootstrap-table-multiple-sort.js
+[pid: 14117|app: 0|req: 61/125] 27.247.45.101 () {44 vars in 1053 bytes} [Sun Mar 22 14:43:06 2020] GET /product/MP-2020-008/extensions/multiple-sort/bootstrap-table-multiple-sort.js => generated 2784 bytes in 6 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14118|app: 0|req: 65/126] 27.247.45.101 () {46 vars in 1073 bytes} [Sun Mar 22 14:43:10 2020] GET /product/Testing => generated 0 bytes in 1 msecs (HTTP/1.1 301) 4 headers in 155 bytes (1 switches on core 0)
+get success
+[pid: 14117|app: 0|req: 62/127] 27.247.45.101 () {46 vars in 1075 bytes} [Sun Mar 22 14:43:11 2020] GET /product/Testing/ => generated 2979 bytes in 7 msecs (HTTP/1.1 200) 6 headers in 319 bytes (1 switches on core 0)
+Not Found: /product/Testing/extensions/multiple-sort/bootstrap-table-multiple-sort.js
+[pid: 14118|app: 0|req: 66/128] 27.247.45.101 () {44 vars in 1041 bytes} [Sun Mar 22 14:43:11 2020] GET /product/Testing/extensions/multiple-sort/bootstrap-table-multiple-sort.js => generated 2772 bytes in 4 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 14117|app: 0|req: 63/129] 27.247.45.101 () {44 vars in 1023 bytes} [Sun Mar 22 14:43:18 2020] GET /purchase/Testing/ => generated 5063 bytes in 28 msecs (HTTP/1.1 200) 6 headers in 319 bytes (1 switches on core 0)
+Not Found: /purchase/Testing/extensions/multiple-sort/bootstrap-table-multiple-sort.js
+[pid: 14118|app: 0|req: 67/130] 27.247.45.101 () {44 vars in 1044 bytes} [Sun Mar 22 14:43:18 2020] GET /purchase/Testing/extensions/multiple-sort/bootstrap-table-multiple-sort.js => generated 2775 bytes in 3 msecs (HTTP/1.1 404) 4 headers in 129 bytes (1 switches on core 0)
