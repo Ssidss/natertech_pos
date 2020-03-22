@@ -1,0 +1,31 @@
+<!-- index.html -->
+{%extends "layout/base.html" %}
+{%block title%} Sold Detail {%endblock%}
+{%block content %}
+
+<div class='container'>
+    {%for message in messages %}
+    <div class='alert alert-{{message.tags}}'>{{message}}</div>
+    {%endfor%}
+    <div class='row'>
+        <div class='col-md-12'>
+            <div class='panel panel-default'>
+                <div class='panel-heading' align=center>
+                    
+                </div>
+                <div class='panel-heading'>
+                    <table>
+                        <tr>
+                            <th><a href='/admin'>Admin</a></th>
+                            <th><a href='/product'>Product List</a></th>
+                            <th><a href='/sold'>Sold+product_num</a></th>
+                        </tr>
+                    </table>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

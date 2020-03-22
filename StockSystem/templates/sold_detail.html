@@ -1,0 +1,25 @@
+<!-- sold_detail.html -->
+{%extends "layout/base.html" %}
+{%block title%} Sold Detail {%endblock%}
+{%block content %}
+
+<div class='container'>
+    {%for message in messages %}
+    <div class='alert alert-{{message.tags}}'>{{message}}</div>
+    {%endfor%}
+    <div class='row'>
+        <div class='col-md-12'>
+            <div class='panel panel-default'>
+                <div class='panel-heading' align=center>
+                    <p>出貨明細</p>
+                </div>
+                <div class='panel-heading'>
+                    <h3>{{Product.name}}</h3>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

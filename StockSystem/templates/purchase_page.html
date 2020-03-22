@@ -1,0 +1,31 @@
+<!-- purchase_page.html -->
+{%extends "layout/base.html" %}
+{%block title%} Purchase {%endblock%}
+{%block content %}
+
+<div class='container'>
+    {%for message in messages %}
+    <div class='alert alert-{{message.tags}}'>{{message}}</div>
+    {%endfor%}
+    <div class='row'>
+        <div class='col-md-12'>
+            <div class='panel panel-default'>
+                <div class='panel-heading' align=center>
+                    <p>進貨</p>
+                </div>
+                <div class='panel-heading'>
+                    <h3>{{Product.name}}</h3>
+                    <form name = 'purchase', action = '.', method = 'POST'>
+                    {%csrf_token%}
+                    <table>
+                        {{PurchaseForm.as_table}}
+                    </table>
+                        <input type = 'submit' value='post' name = 'purchase'>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
