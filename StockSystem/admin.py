@@ -13,12 +13,12 @@ class Show_Category(admin.ModelAdmin):
 
 class Show_Family(admin.ModelAdmin):
     model = models.Family
-    list_display = ('name',)
+    list_display = ('chinese_name', 'name',)
     ordering = ('name', )
 
 class Show_Genus(admin.ModelAdmin):
     model = models.Genus
-    list_display = ('name', 'family',)
+    list_display = ('chinese_name', 'name', 'family',)
     ordering = ('name', 'family', )
 
 class Show_Product(admin.ModelAdmin):
