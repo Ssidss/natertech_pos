@@ -11,6 +11,7 @@ DISTRIBUTE = (('r', "retailer"), ('s', "shapee"))
 class Category(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField('category_name', max_length=200)
+    parent = models.ForeignKey('self',blank=True, null=True , default = None,related_name='children', on_delete = models.CASCADE)
     def __str__(self):
         return self.name
 
