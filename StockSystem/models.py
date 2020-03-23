@@ -24,15 +24,17 @@ class Supplier(models.Model):
     def __str__(self):
         return self.name
 
-class Family(models.Model):
+class Family(models.Model):  #科
     id = models.AutoField(primary_key=True)
     name = models.CharField('family_name', max_length=200)
+    chinese_name = models.CharField('family_chinese_name', max_length=200, blank = True, default = None, null = True)
     def __str__(self):
         return self.name
 
-class Genus(models.Model):
+class Genus(models.Model):  #屬
     id = models.AutoField(primary_key=True)
     name = models.CharField('genus_name', max_length=200)
+    chinese_name = models.CharField('genus_chinese_name', max_length=200, blank = True, default = None, null = True)
     family = models.ForeignKey(Family, on_delete = models.CASCADE, blank=True, default=None)
     def __str__(self):
         return self.name
@@ -66,22 +68,22 @@ class Product(models.Model):
 
 class Sold(models.Model):
     id = models.AutoField(primary_key=True)
-    amount = models.IntegerField('sold_amount')
-    sold_date = models.DateField(blank=True, default=datetime.date.today, null = True)
-    revenue = models.IntegerField('sold_revenue')
+    amount = models.PositiveIntegerField('sold_amount')
+    sold_date = models.DateField('sold_date', blank=True, default=datetime.date.today, null = True)
+    revenue = models.PositiveIntegerField('sold_revenue')
     distribute = models.CharField('sold_distribute', max_length=1,choices = DISTRIBUTE, blank = True, default = None, null = True)  #eunm
     reason = models.CharField('sold_reason', max_length=1,choices = REASON, blank = True, null = True, default = 's')   #enum
     memo = models.TextField('sold_memo', blank=True, default=None, null = True)
     product = models.ForeignKey(Product, on_delete = models.CASCADE, blank=True, default=None, null = True)
-    fee = models.IntegerField(blank = True, default = 0)
+    fee = models.IntegerField('sold_fee', blank = True, default = 0)
     #def __str__(self):
     #    return self.product
 
 class Purchase(models.Model):
     id = models.AutoField(primary_key=True)
-    amount = models.IntegerField('pruchase_amount', blank = True, default = 0)
-    purchase_date = models.DateField(blank=True, default=datetime.date.today, null = True)
-    expenses = models.IntegerField('purchase_expenses')
+    amount = models.PositiveIntegerField('pruchase_amount', blank = True, default = 0)
+    purchase_date = models.DateField('purchase_date', blank=True, default=datetime.date.today, null = True)
+    expenses = models.PositiveIntegerField('purchase_expenses')
     reason =  models.CharField('pruchase_reason', max_length=1, choices = REASON, blank = True, null = True, default = 'p')    #enum
     memo = models.TextField('pruchase_memo', blank=True, default=None, null = True)
     product = models.ForeignKey(Product, on_delete = models.CASCADE, blank=True, default=None, null = True)
