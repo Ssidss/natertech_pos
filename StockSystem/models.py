@@ -1,7 +1,7 @@
 #Stock System Model
 from django.db import models
 import datetime
-
+from django.utils.html import format_html
 
 
 STOCK_STATUS = (('n', "none"), ('l', "less then 5"), ('s', "sufficient"))
@@ -52,7 +52,7 @@ class Product(models.Model):
     genus = models.ForeignKey(Genus, on_delete = models.CASCADE, blank=True, default=None, null = True)
     supplier = models.ForeignKey(Supplier, on_delete = models.CASCADE, blank=True, default=None, null = True)
     category = models.ForeignKey(Category, on_delete = models.CASCADE, blank=True, default=None, null = True)
-    proudct_image = models.ImageField("product_image", blank=True, null = True, default = None)
+    image = models.ImageField("product_image", blank=True, null = True, default = None)
     length = models.FloatField("product_length", blank = True, null = True, default = 0.0)
     width = models.FloatField("product_width", blank = True, null = True, default = 0.0)
     high = models.FloatField("product_high", blank = True, null = True, default = 0.0)
@@ -66,6 +66,14 @@ class Product(models.Model):
             self.stock_status = 's'
     def __str__(self):
         return self.name
+    def image_data(self):
+        #print(self.product_image.url)
+        if self.image and hasattr(self.image, 'url'):
+            return format_html(
+            '<img src="%s" width="100px"/>'%(
+            self.image.url)
+            )
+    image_data.short_description = 'product_image'
 
 class Sold(models.Model):
     id = models.AutoField(primary_key=True)
@@ -85,8 +93,9 @@ class Purchase(models.Model):
     amount = models.PositiveIntegerField('pruchase_amount', blank = True, default = 0)
     purchase_date = models.DateField('purchase_date', blank=True, default=datetime.date.today, null = True)
     expenses = models.PositiveIntegerField('purchase_expenses')
-    reason =  models.CharField('pruchase_reason', max_length=1, choices = REASON, blank = True, null = True, default = 'p')    #enum
-    memo = models.TextField('pruchase_memo', blank=True, default=None, null = True)
+    reason =  models.CharField('purchase_reason', max_length=1, choices = REASON, blank = True, null = True, default = 'p')    #enum
+    purchase_num = models.CharField('purchase_num', max_length = 200, blank = True, default = None, null = True)
+    memo = models.TextField('purchase_memo', blank=True, default=None, null = True)
     product = models.ForeignKey(Product, on_delete = models.CASCADE, blank=True, default=None, null = True)
     supplier = models.ForeignKey(Supplier, on_delete = models.CASCADE, blank=True, default=None, null = True)
     category = models.ForeignKey(Category, on_delete = models.CASCADE, blank=True, default=None, null = True)

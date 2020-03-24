@@ -1,5 +1,6 @@
 from django.contrib import admin
 from StockSystem import models
+from django.utils.safestring import mark_safe
 
 class Show_Supplier(admin.ModelAdmin):
     model = models.Supplier
@@ -23,8 +24,9 @@ class Show_Genus(admin.ModelAdmin):
 
 class Show_Product(admin.ModelAdmin):
     model = models.Product
-    list_display = ('name', 'amount', 'product_num', 'stock_status', )
+    list_display = ('name', 'amount', 'image_data', 'product_num', 'stock_status', )
     ordering = ('name', 'product_num', 'family', 'genus', )
+    readonly_fields = ('image_data',)
 
 class Show_Sold(admin.ModelAdmin):
     model = models.Sold
