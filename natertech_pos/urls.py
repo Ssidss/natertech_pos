@@ -15,19 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
-from StockSystem import views
+from StockSystem import views as stock_views
+from analysis_system import views as ana_views
 from django.conf.urls import url
 from django.views.static import serve
 from . import settings
 
 urlpatterns = [
     path(r'admin/', admin.site.urls),
-    path('product/<slug:p_num>/', views.product_view),
-    path('product/', views.product_list),
-    path('purchase/<slug:product_num>/', views.purchase_page),
+    path('product/<slug:p_num>/', stock_views.product_view),
+    path('product/', stock_views.product_list),
+    path('purchase/<slug:product_num>/', stock_views.purchase_page),
     #path('purchase/create/', views.purchase_create),
-    path('sold/<slug:product_num>/', views.sold_page),
-    path('', views.index_page),
+    path('sold/<slug:product_num>/', stock_views.sold_page),
+    path('', stock_views.index_page),
     #path('product/<slug:p_num>/update/', views.ProductUpdate.as_view(), name = 'product_update'),
     re_path('^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT }),
+    path('product_analysis/analysis/', ana_views.product_analysis),
 ]

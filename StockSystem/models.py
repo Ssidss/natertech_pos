@@ -88,13 +88,19 @@ class Sold(models.Model):
     #def __str__(self):
     #    return self.product
 
+class Purchase_Num(models.Model):
+    id = models.AutoField(primary_key = True)
+    num = models.CharField('purchase_num', max_length=200)
+    def __str__(self):
+        return self.num
+
 class Purchase(models.Model):
     id = models.AutoField(primary_key=True)
     amount = models.PositiveIntegerField('pruchase_amount', blank = True, default = 0)
-    purchase_date = models.DateField('purchase_date', blank=True, default=datetime.date.today, null = True)
+    purchase_date = models.DateTimeField('purchase_date', blank=True, default=datetime.datetime.now, null = True)
     expenses = models.PositiveIntegerField('purchase_expenses')
     reason =  models.CharField('purchase_reason', max_length=1, choices = REASON, blank = True, null = True, default = 'p')    #enum
-    purchase_num = models.CharField('purchase_num', max_length = 200, blank = True, default = None, null = True)
+    purchase_num = models.ForeignKey(Purchase_Num, on_delete = models.CASCADE, blank=True, default=None, null = True)
     memo = models.TextField('purchase_memo', blank=True, default=None, null = True)
     product = models.ForeignKey(Product, on_delete = models.CASCADE, blank=True, default=None, null = True)
     supplier = models.ForeignKey(Supplier, on_delete = models.CASCADE, blank=True, default=None, null = True)

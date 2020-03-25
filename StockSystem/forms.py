@@ -5,6 +5,9 @@ from StockSystem import models
 class DateInput(forms.DateInput):
     input_type = 'date'
 
+class DateTimeInput(forms.DateTimeInput):
+    input_type = 'datetime'
+
 class Product(forms.ModelForm):
     
     class Meta:
@@ -27,9 +30,10 @@ class Purchase(forms.ModelForm):
         widgets = {
             'purchase_date': DateInput(),
         }
-        fields = ['product', 'amount', 'purchase_date', 'expenses', 'reason', 'supplier', 'category', 'memo']
+        fields = ['amount', 'purchase_date', 'expenses', 'reason', 'supplier', 'purchase_num', 'category', 'memo']
     def __init__(self, *args, **kwargs):
         super(Purchase, self).__init__(*args, **kwargs)
+        #self.fields['product'].widget.attrs['readonly'] = True
         #self.fields['volume'].label = 'volume'
 
 class Sold(forms.ModelForm):

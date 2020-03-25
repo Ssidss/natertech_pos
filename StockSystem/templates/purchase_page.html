@@ -14,10 +14,18 @@
                     <p>進貨</p>
                 </div>
                 <div class='panel-heading'>
-                    <h3>{{Product.name}}</h3>
+
                     <form name = 'purchase', action = '.', method = 'POST'>
                     {%csrf_token%}
                     <table>
+                        <tr>
+                            <th>{{Product.name}}</th>
+                            {%if Product.image%}
+                            <td><img src="{{Product.image.url}}" width="100px"/></td>
+                            {%else%}
+                            <td></td>
+                            {%endif%}
+                        </tr>
                         {{PurchaseForm.as_table}}
                     </table>
                         <input type = 'submit' value='post' name = 'purchase'>

@@ -1,0 +1,32 @@
+<!-- index.html -->
+{%extends "layout/base.html" %}
+{%block title%} Sold Detail {%endblock%}
+{%block content %}
+
+<div class='container'>
+    {%for message in messages %}
+    <div class='alert alert-{{message.tags}}'>{{message}}</div>
+    {%endfor%}
+    <div class='row'>
+        <div class='col-md-12'>
+            <div class='panel panel-default'>
+                <div class='panel-heading' align=center>
+                    
+                </div>
+                <div class='panel-heading'>
+                    <table>
+                    {%for i, sd in sold_daily%}
+                        <tr>                            
+                            <th>{{i}}</th>
+                            <td>{{sd}}</td>                            
+                        </tr>
+                        {%endfor%}
+                    </table>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

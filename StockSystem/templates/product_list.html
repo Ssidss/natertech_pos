@@ -115,6 +115,8 @@ var TableInit = function () {
             	{field:'checkbox', title:'選取', align:'center', width:80, visible:true, checkbox:true},
                 //{field:'id', title:'ID', align:'center', width:60, visible:true, sortable:true, 
             	//	formatter: function(value){ return '<a href = "/customers/'+value+'">'+value+'</a>'; } },
+                {field:'image', title:'image', align:'center', visible:true,
+                    formatter: function(value){ return '<img src="'+value+'" width=\"100px\"/>'}},
                 {field:'name', title:'name', align:'left', width:200, visible:true, sortable:true},
                 {field:'amount', title:'amount', align:'left', visible:true, sortable:true},
                 {field:'product_num', title:'product_num', align:'left', visible:true, sortable:true},
@@ -125,6 +127,7 @@ var TableInit = function () {
                 {field:'category', title:'category', align:'left', visible:true, sortable:true},
                 {field:'ind', title:'modify', align:'center', visible:true,
                 	formatter: function(value){ return  '<a href = "/product/'+value+'"><i class="fas btn-dark fa-eye" ></i></a>';} }
+
                 //{field:'modifyById', title:'<fmt:message key="general.operate"/>', align:'center', visible:true,
                 //	formatter: function(value){ return  '<a href = "/customers/'+value+'"><i class="fas fa-eye"></i></a>'+
                 //										'<a href = "/customers/update/'+value+'"><i class="fas fa-pencil-alt"></i></a>'+
@@ -163,7 +166,12 @@ function getData() { //修改資料
 	      genus: "{{product.genus}}",
 	      supplier: "{{product.supplier}}" ,
           category: "{{product.category}}",
-          ind: "{{product.product_num}}"
+          ind: "{{product.product_num}}",
+          {% if product.image %}
+          image: "{{product.image.url}}" // image must me exists or it will be error
+          {% else %}
+          image: ""
+          {% endif %}
 	   });
 	  {%endfor%}
 	  //}
