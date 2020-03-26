@@ -78,6 +78,7 @@ def purchase_page(request, product_num = None):
 
 
 def sold_page(request, product_num = None):
+    #print(product_num)
     try:
         Product = models.Product.objects.get(product_num = product_num)
             # Create Purchase Form 

@@ -2,6 +2,53 @@
 {%extends "layout/base.html" %}
 {%block title%} Sold Detail {%endblock%}
 {%block content %}
+<script language="JavaScript">
+$(document).ready(function() {  
+   
+   var chart = {
+      type: 'column'
+   };
+   var title = {
+      text: 'Dailys Sold'   
+   };    
+   var xAxis = {
+      categories: {{ datearray|safe }}
+   };
+   var yAxis ={
+      allowDecimals: false,
+      min: 0,
+      title: {
+        text: 'Number of Sold'
+      }     
+   }; 
+   var plotOptions = {
+      column: {
+         stacking: 'normal'        
+      }
+   };
+   var credits = {
+      enabled: false
+   };
+   var series= [{
+            name: 'Sold',
+            data: {{product_sold_amount|safe }}
+        }, {
+            name: 'Discount',
+            data: {{product_disc_amount|safe }}
+        }];     
+      
+   var json = {};   
+   json.chart = chart; 
+   json.title = title;   
+   json.xAxis = xAxis;
+   json.yAxis = yAxis;  
+   json.plotOptions = plotOptions;
+   json.credits = credits;
+   json.series = series;
+   $('#container').highcharts(json);
+  
+});
+</script>
 
 <div class='container'>
     {%for message in messages %}
@@ -14,15 +61,7 @@
                     
                 </div>
                 <div class='panel-heading'>
-                    <table>
-                    {%for i, sd in sold_daily%}
-                        <tr>                            
-                            <th>{{i}}</th>
-                            <td>{{sd}}</td>                            
-                        </tr>
-                        {%endfor%}
-                    </table>
-                    
+                    <div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
                 </div>
 
             </div>

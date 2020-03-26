@@ -5,7 +5,7 @@ from django.utils.html import format_html
 
 
 STOCK_STATUS = (('n', "none"), ('l', "less then 5"), ('s', "sufficient"))
-REASON = (('s', "sold"), ('r', "return"), ('b', "broken"), ('p', 'pruchase'))
+REASON = (('s', "sold"), ('d', "discount"), ('r', "return"), ('b', "broken"), ('p', 'pruchase'))
 DISTRIBUTE = (('r', "retailer"), ('s', "shapee"))
 
 class Category(models.Model):
@@ -56,7 +56,7 @@ class Product(models.Model):
     length = models.FloatField("product_length", blank = True, null = True, default = 0.0)
     width = models.FloatField("product_width", blank = True, null = True, default = 0.0)
     high = models.FloatField("product_high", blank = True, null = True, default = 0.0)
-#    price = models.FloatField("product_price", blank = True, null = True, default= 0.0)
+    estimated_price = models.FloatField("product_estimated_price", blank = True, null = True, default= 0.0)
     def setStock_Status(self):
         if self.amount <= 0:
             self.stock_status = 'n'

@@ -31,5 +31,6 @@ urlpatterns = [
     path('', stock_views.index_page),
     #path('product/<slug:p_num>/update/', views.ProductUpdate.as_view(), name = 'product_update'),
     re_path('^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT }),
-    path('product_analysis/analysis/', ana_views.product_analysis),
+    path('product_analysis/', ana_views.product_list_analysis),
+    path('product_analysis/<slug:product_num>/', ana_views.product_analysis),
 ]
