@@ -30,7 +30,7 @@ class Family(models.Model):  #科
     name = models.CharField('family_name', max_length=200)
     chinese_name = models.CharField('family_chinese_name', max_length=200, blank = True, default = None, null = True)
     def __str__(self):
-        return self.name
+        return self.chinese_name
 
 class Genus(models.Model):  #屬
     id = models.AutoField(primary_key=True)
