@@ -38,7 +38,7 @@ class Genus(models.Model):  #屬
     chinese_name = models.CharField('genus_chinese_name', max_length=200, blank = True, default = None, null = True)
     family = models.ForeignKey(Family, on_delete = models.CASCADE, blank=True, default=None)
     def __str__(self):
-        return self.name
+        return self.chinese_name
 
 
 class Product(models.Model):
@@ -75,6 +75,12 @@ class Product(models.Model):
             )
     image_data.short_description = 'product_image'
 
+class Sold_Nun(models.Model):
+    id = models.AutoField(primary_key = True)
+    num = models.CharField('sold_num', max_length=200)
+    def __str__(self):
+        return self.num
+
 class Sold(models.Model):
     id = models.AutoField(primary_key=True)
     amount = models.PositiveIntegerField('sold_amount')
@@ -85,6 +91,7 @@ class Sold(models.Model):
     memo = models.TextField('sold_memo', blank=True, default=None, null = True)
     product = models.ForeignKey(Product, on_delete = models.CASCADE, blank=True, default=None, null = True)
     fee = models.IntegerField('sold_fee', blank = True, default = 0)
+    sold_num = models.ForeignKey(Sold_Nun, on_delete = models.CASCADE, blank=True, default=None, null = True)
     #def __str__(self):
     #    return self.product
 
