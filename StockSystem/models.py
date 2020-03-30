@@ -11,16 +11,16 @@ DISTRIBUTE = (('r', "retailer"), ('s', "shapee"))
 class Category(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField('category_name', max_length=200)
-    parent = models.ForeignKey('self',blank=True, null=True , default = None,related_name='children', on_delete = models.CASCADE)
+    parent = models.ForeignKey('self', blank=True, null=True , default = None,related_name='children', on_delete = models.CASCADE)
     def __str__(self):
         return self.name
 
 class Supplier(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField('supplier_name', max_length=200)
-    phone = models.CharField('supplier_phone', max_length=200, blank=True, default=None)
-    address = models.CharField('supplier_address', max_length=200, blank=True, default=None)
-    email = models.EmailField('supplier_email', max_length=200, blank=True, default=None)
+    phone = models.CharField('supplier_phone', max_length=200, blank=True, default=None, null = True)
+    address = models.CharField('supplier_address', max_length=200, blank=True, default=None, null = True)
+    email = models.EmailField('supplier_email', max_length=200, blank=True, default=None, null = True)
     categorys = models.ManyToManyField(Category, blank=True, default=None)
     def __str__(self):
         return self.name
@@ -45,9 +45,9 @@ class Product(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField('product_name', max_length=200)
     amount = models.IntegerField('product_amount', default=0)
-    product_num = models.SlugField('product_num', max_length=200, unique=True)
+    product_num = models.SlugField('product_num', max_length=200, unique=True, blank = True, null = True, default = None)
     stock_status = models.CharField('product_stock_status', max_length=1, choices = STOCK_STATUS, blank=True, default=None, null = True) #Enum
-    memo = models.TextField('product_memo', blank=True, default=None)
+    memo = models.TextField('product_memo', blank=True, default=None, null = True)
     family = models.ForeignKey(Family, on_delete = models.CASCADE, blank=True, default=None, null = True)
     genus = models.ForeignKey(Genus, on_delete = models.CASCADE, blank=True, default=None, null = True)
     supplier = models.ForeignKey(Supplier, on_delete = models.CASCADE, blank=True, default=None, null = True)
@@ -76,8 +76,10 @@ class Product(models.Model):
     image_data.short_description = 'product_image'
 
 class Sold_Nun(models.Model):
+    #import Sold from .
     id = models.AutoField(primary_key = True)
     num = models.CharField('sold_num', max_length=200)
+    #sold = models.ManyToManyField(Sold, blank=True, default=None, null = True)
     def __str__(self):
         return self.num
 
@@ -96,8 +98,10 @@ class Sold(models.Model):
     #    return self.product
 
 class Purchase_Num(models.Model):
+    #import Purchas from .
     id = models.AutoField(primary_key = True)
     num = models.CharField('purchase_num', max_length=200)
+    #purchase = models.ManyToManyField(Purchase, blank=True, default=None, null = True)
     def __str__(self):
         return self.num
 
