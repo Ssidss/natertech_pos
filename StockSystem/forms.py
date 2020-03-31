@@ -30,7 +30,7 @@ class Purchase(forms.ModelForm):
         #widgets = {
         #    'purchase_date': DateInput(),
         #}
-        fields = ['amount', 'price', 'reason', 'supplier', 'purchase_num', 'category', 'memo']
+        fields = ['amount', 'price', 'reason', 'supplier', 'category', 'memo']
     def __init__(self, *args, **kwargs):
         super(Purchase, self).__init__(*args, **kwargs)
         #self.fields['product'].widget.attrs['readonly'] = True
@@ -42,7 +42,7 @@ class Sold(forms.ModelForm):
         #widgets = {
         #    'sold_date': DateInput(),
         #}
-        fields = ['product', 'amount', 'price', 'distribute', 'sold_num', 'reason', 'fee', 'memo']
+        fields = ['product', 'amount', 'price', 'distribute', 'reason', 'fee', 'memo']
     def __init__(self, *args, **kwargs):
         super(Sold, self).__init__(*args, **kwargs)
         #self.fields['volume'].label = 'volume'

@@ -34,17 +34,17 @@ class Show_Sold(admin.ModelAdmin):
     ordering = ('product', )
 
 class Show_Purchase_num(admin.ModelAdmin):
-    model = models.Purchase_Num
+    model = models.PurchaseNum   # Purchas_Num -> PurchaseNum
     list_display = ('num', 'get_total_cost')
     ordering = ('num', )
 
 class Show_Purchase(admin.ModelAdmin):
-    model = models.Purchase
+    model = models.Purchase   
     list_display = ('product', 'amount', 'price', 'reason', )
     ordering = ('product', )
 
 class Show_Sold_Num(admin.ModelAdmin):
-    model = models.Sold_Nun 
+    model = models.SoldNum   # Sold_Nun -> SoldNum
     list_display = ('num', 'get_total_cost')
     ordering = ('num', )
 
@@ -55,5 +55,5 @@ admin.site.register(models.Genus, Show_Genus)
 admin.site.register(models.Product, Show_Product)
 admin.site.register(models.Sold, Show_Sold)
 admin.site.register(models.Purchase, Show_Purchase)
-admin.site.register(models.Purchase_Num, Show_Purchase_num)
-admin.site.register(models.Sold_Nun, Show_Sold_Num)
+admin.site.register(models.PurchaseNum, Show_Purchase_num)  # Purchas_Num -> PurchaseNum
+admin.site.register(models.SoldNum, Show_Sold_Num) # Sold_Nun -> SoldNum

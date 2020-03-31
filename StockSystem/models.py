@@ -76,7 +76,7 @@ class Product(models.Model):
             )
     image_data.short_description = 'product_image'
 
-class Sold_Nun(models.Model):
+class SoldNum(models.Model): # Sold_Nun -> SoldNum
     #import Sold from .
     id = models.AutoField(primary_key = True)
     num = models.CharField('sold_num', max_length=200)
@@ -97,7 +97,8 @@ class Sold(models.Model):
     memo = models.TextField('sold_memo', blank=True, default=None, null = True)
     product = models.ForeignKey(Product, related_name = 'sold_items', on_delete = models.CASCADE, blank=True, default=None, null = True)
     fee = models.IntegerField('sold_fee', blank = True, default = 0)
-    sold_num = models.ForeignKey(Sold_Nun, related_name = 'sold_order_items', on_delete = models.CASCADE, blank=True, default=None, null = True)
+    # Sold_Nun -> SoldNum
+    sold_num = models.ForeignKey(SoldNum, related_name = 'sold_order_items', on_delete = models.CASCADE, blank=True, default=None, null = True)
     def get_cost(self):
         return self.price * self.amount
     def __str__(self):
@@ -106,7 +107,7 @@ class Sold(models.Model):
         else:
             return "No product"
 
-class Purchase_Num(models.Model):
+class PurchaseNum(models.Model):   # Purchas_Num -> PurchaseNum
     #import Purchas from .
     id = models.AutoField(primary_key = True)
     num = models.CharField('purchase_num', max_length=200)
@@ -123,7 +124,8 @@ class Purchase(models.Model):
     #purchase_date = models.DateTimeField('purchase_date', blank=True, default=datetime.datetime.now, null = True)
     price = models.DecimalField('purchase_expenses', max_digits=10, decimal_places=0, default = 0)
     reason =  models.CharField('purchase_reason', max_length=1, choices = REASON, blank = True, null = True, default = 'p')    #enum
-    purchase_num = models.ForeignKey(Purchase_Num, related_name = 'purchase_items', on_delete = models.CASCADE, blank=True, default=None, null = True)
+    # Purchas_Num -> PurchaseNum
+    purchase_num = models.ForeignKey(PurchaseNum, related_name = 'purchase_items', on_delete = models.CASCADE, blank=True, default=None, null = True)
     memo = models.TextField('purchase_memo', blank=True, default=None, null = True)
     product = models.ForeignKey(Product, related_name = 'purchase_order_items', on_delete = models.CASCADE, blank=True, default=None, null = True)
     supplier = models.ForeignKey(Supplier, on_delete = models.CASCADE, blank=True, default=None, null = True)
