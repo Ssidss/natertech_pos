@@ -27,10 +27,10 @@ class Product(forms.ModelForm):
 class Purchase(forms.ModelForm):
     class Meta:
         model = models.Purchase
-        widgets = {
-            'purchase_date': DateInput(),
-        }
-        fields = ['amount', 'purchase_date', 'expenses', 'reason', 'supplier', 'purchase_num', 'category', 'memo']
+        #widgets = {
+        #    'purchase_date': DateInput(),
+        #}
+        fields = ['amount', 'price', 'reason', 'supplier', 'purchase_num', 'category', 'memo']
     def __init__(self, *args, **kwargs):
         super(Purchase, self).__init__(*args, **kwargs)
         #self.fields['product'].widget.attrs['readonly'] = True
@@ -39,10 +39,10 @@ class Purchase(forms.ModelForm):
 class Sold(forms.ModelForm):
     class Meta:
         model = models.Sold
-        widgets = {
-            'sold_date': DateInput(),
-        }
-        fields = ['product', 'amount', 'sold_date', 'revenue', 'distribute', 'reason', 'fee', 'memo']
+        #widgets = {
+        #    'sold_date': DateInput(),
+        #}
+        fields = ['product', 'amount', 'price', 'distribute', 'sold_num', 'reason', 'fee', 'memo']
     def __init__(self, *args, **kwargs):
         super(Sold, self).__init__(*args, **kwargs)
         #self.fields['volume'].label = 'volume'

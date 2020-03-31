@@ -80,43 +80,59 @@ class Sold_Nun(models.Model):
     #import Sold from .
     id = models.AutoField(primary_key = True)
     num = models.CharField('sold_num', max_length=200)
+    sold_date = models.DateField('sold_date', blank=True, default=datetime.date.today, null = True)
     #sold = models.ManyToManyField(Sold, blank=True, default=None, null = True)
     def __str__(self):
         return self.num
+    def get_total_cost(self):
+        return sum(item.get_cost() for item in self.sold_items.all())
 
 class Sold(models.Model):
     id = models.AutoField(primary_key=True)
     amount = models.PositiveIntegerField('sold_amount')
-    sold_date = models.DateField('sold_date', blank=True, default=datetime.date.today, null = True)
-    revenue = models.PositiveIntegerField('sold_revenue')
+    #sold_date = models.DateField()
+    price = models.DecimalField('sold_revenue', max_digits=10, decimal_places = 0, default = 0)
     distribute = models.CharField('sold_distribute', max_length=1,choices = DISTRIBUTE, blank = True, default = None, null = True)  #eunm
     reason = models.CharField('sold_reason', max_length=1,choices = REASON, blank = True, null = True, default = 's')   #enum
     memo = models.TextField('sold_memo', blank=True, default=None, null = True)
-    product = models.ForeignKey(Product, on_delete = models.CASCADE, blank=True, default=None, null = True)
+    product = models.ForeignKey(Product, related_name = 'sold_items', on_delete = models.CASCADE, blank=True, default=None, null = True)
     fee = models.IntegerField('sold_fee', blank = True, default = 0)
-    sold_num = models.ForeignKey(Sold_Nun, on_delete = models.CASCADE, blank=True, default=None, null = True)
-    #def __str__(self):
-    #    return self.product
+    sold_num = models.ForeignKey(Sold_Nun, related_name = 'sold_order_items', on_delete = models.CASCADE, blank=True, default=None, null = True)
+    def get_cost(self):
+        return self.price * self.amount
+    def __str__(self):
+        if self.product:
+            return self.product.name
+        else:
+            return "No product"
 
 class Purchase_Num(models.Model):
     #import Purchas from .
     id = models.AutoField(primary_key = True)
     num = models.CharField('purchase_num', max_length=200)
+    purchase_date = models.DateTimeField('purchase_date', blank=True, default=datetime.datetime.now, null = True)
     #purchase = models.ManyToManyField(Purchase, blank=True, default=None, null = True)
     def __str__(self):
         return self.num
+    def get_total_cost(self):
+        return sum(item.get_cost() for item in self.purchase_items.all())
 
 class Purchase(models.Model):
     id = models.AutoField(primary_key=True)
     amount = models.PositiveIntegerField('pruchase_amount', blank = True, default = 0)
-    purchase_date = models.DateTimeField('purchase_date', blank=True, default=datetime.datetime.now, null = True)
-    expenses = models.PositiveIntegerField('purchase_expenses')
+    #purchase_date = models.DateTimeField('purchase_date', blank=True, default=datetime.datetime.now, null = True)
+    price = models.DecimalField('purchase_expenses', max_digits=10, decimal_places=0, default = 0)
     reason =  models.CharField('purchase_reason', max_length=1, choices = REASON, blank = True, null = True, default = 'p')    #enum
-    purchase_num = models.ForeignKey(Purchase_Num, on_delete = models.CASCADE, blank=True, default=None, null = True)
+    purchase_num = models.ForeignKey(Purchase_Num, related_name = 'purchase_items', on_delete = models.CASCADE, blank=True, default=None, null = True)
     memo = models.TextField('purchase_memo', blank=True, default=None, null = True)
-    product = models.ForeignKey(Product, on_delete = models.CASCADE, blank=True, default=None, null = True)
+    product = models.ForeignKey(Product, related_name = 'purchase_order_items', on_delete = models.CASCADE, blank=True, default=None, null = True)
     supplier = models.ForeignKey(Supplier, on_delete = models.CASCADE, blank=True, default=None, null = True)
     category = models.ForeignKey(Category, on_delete = models.CASCADE, blank=True, default=None, null = True)
-    #def __str__(self):
-    #    return self.product
+    def get_cost(self):
+        return self.price * self.amount
+    def __str__(self):
+        if self.product:
+            return self.product.name
+        else:
+            return "No product"
     
