@@ -57,6 +57,7 @@ class Product(models.Model):
     width = models.FloatField("product_width", blank = True, null = True, default = 0.0)
     high = models.FloatField("product_high", blank = True, null = True, default = 0.0)
     estimated_price = models.FloatField("product_estimated_price", blank = True, null = True, default= 0.0)
+    plant_size = models.PositiveIntegerField("product_plant_size", blank = True, null = True, default = 0)
     def setStock_Status(self):
         if self.amount <= 0:
             self.stock_status = 'n'
