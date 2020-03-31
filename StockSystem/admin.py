@@ -24,8 +24,8 @@ class Show_Genus(admin.ModelAdmin):
 
 class Show_Product(admin.ModelAdmin):
     model = models.Product
-    list_display = ('name', 'amount', 'image_data', 'product_num', 'stock_status', )
-    ordering = ('name', 'product_num', 'family', 'genus', )
+    list_display = ('name', 'amount', 'image_data', 'plant_size', 'product_num', 'stock_status', )
+    ordering = ('name', 'plant_size', 'product_num', 'family', 'genus', )
     readonly_fields = ('image_data',)
 
 class Show_Sold(admin.ModelAdmin):
