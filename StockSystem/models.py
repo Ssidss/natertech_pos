@@ -85,7 +85,7 @@ class SoldNum(models.Model): # Sold_Nun -> SoldNum
     def __str__(self):
         return self.num
     def get_total_cost(self):
-        return sum(item.get_cost() for item in self.sold_items.all())
+        return sum(item.get_cost() for item in self.sold_order_items.all())
 
 class Sold(models.Model):
     id = models.AutoField(primary_key=True)
