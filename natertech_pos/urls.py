@@ -33,4 +33,8 @@ urlpatterns = [
     re_path('^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT }),
     path('product_analysis/', ana_views.product_list_analysis),
     path('product_analysis/<slug:product_num>/', ana_views.product_analysis),
+    path('soldsystem/sold_num_list/', stock_views.show_sold_num_list),
+    path('soldsystem/sold_num/new/', stock_views.new_sold_num),
+    path('soldsystem/sold/list/', stock_views.show_sold_list),
+    path('selsession/', stock_views.sel_session)
 ]

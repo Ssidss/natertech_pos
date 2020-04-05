@@ -30,7 +30,7 @@ class Show_Product(admin.ModelAdmin):
 
 class Show_Sold(admin.ModelAdmin):
     model = models.Sold
-    list_display = ('product', 'amount', 'price', 'reason', 'fee', )
+    list_display = ('product', 'amount', 'price', 'reason', 'fee', 'sold_num')
     ordering = ('product', )
 
 class Show_Purchase_num(admin.ModelAdmin):

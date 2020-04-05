@@ -4,6 +4,7 @@ import datetime
 from django.utils.html import format_html
 
 
+
 STOCK_STATUS = (('n', "none"), ('l', "less then 5"), ('s', "sufficient"))
 REASON = (('s', "sold"), ('d', "discount"), ('r', "return"), ('b', "broken"), ('p', 'pruchase'))
 DISTRIBUTE = (('r', "retailer"), ('s', "shapee"))
@@ -81,18 +82,24 @@ class SoldNum(models.Model): # Sold_Nun -> SoldNum
     id = models.AutoField(primary_key = True)
     num = models.CharField('sold_num', max_length=200)
     sold_date = models.DateField('sold_date', blank=True, default=datetime.date.today, null = True)
+    distribute = models.CharField('sold_distribute', max_length=1,choices = DISTRIBUTE, blank = True, default = None, null = True)  #eunm
     #sold = models.ManyToManyField(Sold, blank=True, default=None, null = True)
     def __str__(self):
         return self.num
     def get_total_cost(self):
         return sum(item.get_cost() for item in self.sold_order_items.all())
+    def set_num(self):
+        number = ""
+        number += str(datetime.datetime.now())
+        # number += str(self.id)
+        self.num = number
+        self.sold_date = datetime.date.today()
 
 class Sold(models.Model):
     id = models.AutoField(primary_key=True)
     amount = models.PositiveIntegerField('sold_amount')
     #sold_date = models.DateField()
-    price = models.DecimalField('sold_revenue', max_digits=10, decimal_places = 0, default = 0)
-    distribute = models.CharField('sold_distribute', max_length=1,choices = DISTRIBUTE, blank = True, default = None, null = True)  #eunm
+    price = models.DecimalField('sold_revenue', max_digits=10, decimal_places = 0, default = 0)    
     reason = models.CharField('sold_reason', max_length=1,choices = REASON, blank = True, null = True, default = 's')   #enum
     memo = models.TextField('sold_memo', blank=True, default=None, null = True)
     product = models.ForeignKey(Product, related_name = 'sold_items', on_delete = models.CASCADE, blank=True, default=None, null = True)

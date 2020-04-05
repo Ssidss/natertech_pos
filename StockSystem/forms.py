@@ -42,7 +42,16 @@ class Sold(forms.ModelForm):
         #widgets = {
         #    'sold_date': DateInput(),
         #}
-        fields = ['product', 'amount', 'price', 'distribute', 'reason', 'fee', 'memo']
+        fields = ['product', 'amount', 'price', 'reason', 'fee', 'memo', 'sold_num']
     def __init__(self, *args, **kwargs):
         super(Sold, self).__init__(*args, **kwargs)
         #self.fields['volume'].label = 'volume'
+
+class SoldNum(forms.ModelForm):
+    class Meta:
+        model = models.SoldNum
+        fields = ['distribute']
+        
+    def __init__(self, *args, **kwargs):
+        super(SoldNum, self).__init__(*args, **kwargs)
+        self.fields['distribute'].label = 'Select Distribute'

@@ -3,6 +3,7 @@ from StockSystem import models, forms
 from django.http import JsonResponse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 import datetime 
+from django.contrib.sessions.models import Session
 
 def index_page(request):
     return render(request, 'index.html', locals())
@@ -80,9 +81,17 @@ def purchase_page(request, product_num = None):
 def sold_page(request, product_num = None):
     #print(product_num)
     try:
+        print("session number test = "+str(request.session['sold_num']))
+        soldnum = models.SoldNum.objects.get(num = request.session['sold_num'])
+    except Exception as e:
+        print(e)
+        return redirect("/soldsystem/sold_num_list")
+    try:
         Product = models.Product.objects.get(product_num = product_num)
             # Create Purchase Form 
-        SoldForm = forms.Sold(initial = {'product': Product})
+        print("sold Number is "+request.session['sold_num'])
+        soldnum = models.SoldNum.objects.get(num = request.session['sold_num'])
+        SoldForm = forms.Sold(initial = {'product': Product, 'sold_num': soldnum})
     except Exception as e:
         print (e)
     if request.method == 'GET':
@@ -112,3 +121,58 @@ def sold_page(request, product_num = None):
         except Exception as e:
             print(e)
     return render(request, "sold_page.html", locals())
+
+def show_sold_num_list(request):
+    if request.method == 'GET':
+        sold_num_list = models.SoldNum.objects.all()
+        sold_num_form = forms.SoldNum()
+    else:
+        pass
+        #redirect 404
+    return render(request, "sold_num_list.html", locals())
+
+def new_sold_num(request):
+    print("new sold num"+ request.session['sold_num'])
+    #del request.session['sold_num']
+    if request.method == 'POST':
+        sold_num = models.SoldNum()
+        sold_num.set_num()
+        sold_num.distribute = request.POST.get('distribute','')
+        #print("----- request.POST.fields['distribute'] = ___" + request.POST.fields['distribute'])
+        sold_num.save()
+        request.session['sold_num'] = sold_num.num
+    return redirect("/soldsystem/sold/list") # Sold list by Number
+    #return render(request, "sold_cart.html", locals())
+
+def show_sold_list(request):
+    if request.method == 'GET':
+        try:
+            if not request.session['sold_num']:
+                message = "Select a Sold Number"
+            else:
+                print("getsession")
+                sold_num = models.SoldNum.objects.get(num = request.session['sold_num'])
+                print("getsession2")
+                sold_list = models.Sold.objects.filter(sold_num = sold_num)
+                print("getsession3")
+            newsold = forms.Sold(initial = {'sold_num' : sold_num}) 
+            print("getsession4")
+            return render(request, "sold_list.html", locals())
+        except Exception as e:
+            print(e)
+            print("sold_list error")
+            return redirect("/soldsystem/sold_num_list/")
+    elif request.method == 'POST':
+        return redirect("/soldsystem/sold/list/")
+
+def sel_session(request):
+    print("sold_num=======" + request.session['sold_num'])
+    if request.method == 'POST':
+        try:
+            print(request.POST.get('selsession', ""))
+            request.session['sold_num'] = request.POST.get('selsession', "")
+            print("set session success")
+        except Exception as e:
+            print(e)
+        
+        return redirect("/soldsystem/sold/list")
