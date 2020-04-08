@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from StockSystem import models, forms
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseRedirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 import datetime 
 from django.contrib.sessions.models import Session
@@ -88,10 +88,17 @@ def sold_page(request, product_num = None):
         return redirect("/soldsystem/sold_num_list")
     try:
         Product = models.Product.objects.get(product_num = product_num)
-            # Create Purchase Form 
+    except Exception as e:
+        print (e)
+        # Create Purchase Form
+    try:
         print("sold Number is "+request.session['sold_num'])
         soldnum = models.SoldNum.objects.get(num = request.session['sold_num'])
-        SoldForm = forms.Sold(initial = {'product': Product, 'sold_num': soldnum})
+        total_prict = soldnum.get_total_cost()
+        if Product:
+            SoldForm = forms.Sold(initial = {'product': Product, 'sold_num': soldnum})
+        else:
+            SoldForm = forms.Sold(initial = {'sold_num': soldnum})
     except Exception as e:
         print (e)
     if request.method == 'GET':
@@ -105,7 +112,7 @@ def sold_page(request, product_num = None):
         except Exception as e:
             print(e)
     # If request mehtof is POST
-    elif request.method == 'POST':
+    elif request.method == 'POST':  # save sold
         try:
             print("here")
             SoldForm = forms.Sold(request.POST)
@@ -113,11 +120,13 @@ def sold_page(request, product_num = None):
             #SoldForm.fields['product']# = Product
             if SoldForm.is_valid():
                 SoldForm.save()
-                Product = models.Product.objects.get(product_num = product_num)
+                print(request.POST.get('product'))
+                Product = models.Product.objects.get(id = request.POST.get('product'))
+                #Product = models.Product.objects.get(product_num = product_num)
                 Product.amount -= SoldForm.cleaned_data['amount']
                 Product.setStock_Status()
                 Product.save()
-                return redirect('/admin')
+                return HttpResponseRedirect('/soldsystem/sold/list/')
         except Exception as e:
             print(e)
     return render(request, "sold_page.html", locals())
@@ -150,13 +159,10 @@ def show_sold_list(request):
             if not request.session['sold_num']:
                 message = "Select a Sold Number"
             else:
-                print("getsession")
+                session_name = request.session['sold_num']
                 sold_num = models.SoldNum.objects.get(num = request.session['sold_num'])
-                print("getsession2")
                 sold_list = models.Sold.objects.filter(sold_num = sold_num)
-                print("getsession3")
             newsold = forms.Sold(initial = {'sold_num' : sold_num}) 
-            print("getsession4")
             return render(request, "sold_list.html", locals())
         except Exception as e:
             print(e)
@@ -164,6 +170,7 @@ def show_sold_list(request):
             return redirect("/soldsystem/sold_num_list/")
     elif request.method == 'POST':
         return redirect("/soldsystem/sold/list/")
+
 
 def sel_session(request):
     print("sold_num=======" + request.session['sold_num'])

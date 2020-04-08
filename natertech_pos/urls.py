@@ -28,6 +28,7 @@ urlpatterns = [
     path('purchase/<slug:product_num>/', stock_views.purchase_page),
     #path('purchase/create/', views.purchase_create),
     path('sold/<slug:product_num>/', stock_views.sold_page),
+    #path('sold/new/', stock_views.sold_page),
     path('', stock_views.index_page),
     #path('product/<slug:p_num>/update/', views.ProductUpdate.as_view(), name = 'product_update'),
     re_path('^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT }),

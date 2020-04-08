@@ -2,7 +2,8 @@
 from django.db import models
 import datetime
 from django.utils.html import format_html
-
+from django.utils import timezone
+timezone.now
 
 
 STOCK_STATUS = (('n', "none"), ('l', "less then 5"), ('s', "sufficient"))
@@ -23,6 +24,8 @@ class Supplier(models.Model):
     address = models.CharField('supplier_address', max_length=200, blank=True, default=None, null = True)
     email = models.EmailField('supplier_email', max_length=200, blank=True, default=None, null = True)
     categorys = models.ManyToManyField(Category, blank=True, default=None)
+    created_at = models.DateField(default=timezone.now)
+    updated_at = models.DateTimeField(default=timezone.now)
     def __str__(self):
         return self.name
 
@@ -59,6 +62,8 @@ class Product(models.Model):
     high = models.FloatField("product_high", blank = True, null = True, default = 0.0)
     estimated_price = models.FloatField("product_estimated_price", blank = True, null = True, default= 0.0)
     plant_size = models.PositiveIntegerField("product_plant_size", blank = True, null = True, default = 0)
+    created_at = models.DateField(default=timezone.now)
+    updated_at = models.DateTimeField(default=timezone.now)
     def setStock_Status(self):
         if self.amount <= 0:
             self.stock_status = 'n'
@@ -81,19 +86,28 @@ class SoldNum(models.Model): # Sold_Nun -> SoldNum
     #import Sold from .
     id = models.AutoField(primary_key = True)
     num = models.CharField('sold_num', max_length=200)
-    sold_date = models.DateField('sold_date', blank=True, default=datetime.date.today, null = True)
+    created_at = models.DateField('sold_date', blank=True, default=timezone.now, null = True)
     distribute = models.CharField('sold_distribute', max_length=1,choices = DISTRIBUTE, blank = True, default = None, null = True)  #eunm
     #sold = models.ManyToManyField(Sold, blank=True, default=None, null = True)
+    updated_at = models.DateTimeField(default=timezone.now)
     def __str__(self):
         return self.num
     def get_total_cost(self):
         return sum(item.get_cost() for item in self.sold_order_items.all())
     def set_num(self):
-        number = ""
-        number += str(datetime.datetime.now())
-        # number += str(self.id)
-        self.num = number
-        self.sold_date = datetime.date.today()
+        if not self.num:
+            number = ""
+            number += str(datetime.datetime.now())
+            number += "cost-"
+            number += str(self.get_total_cost())
+            # number += str(self.id)
+            self.num = number
+            self.sold_date = datetime.date.today()
+        else:
+            number = number[:27] 
+            number += "cost-"
+            number += str(self.get_total_cost())
+            self.num = number
 
 class Sold(models.Model):
     id = models.AutoField(primary_key=True)
@@ -105,6 +119,8 @@ class Sold(models.Model):
     product = models.ForeignKey(Product, related_name = 'sold_items', on_delete = models.CASCADE, blank=True, default=None, null = True)
     fee = models.IntegerField('sold_fee', blank = True, default = 0)
     # Sold_Nun -> SoldNum
+    created_at = models.DateField(default=timezone.now)
+    updated_at = models.DateTimeField(default=timezone.now)
     sold_num = models.ForeignKey(SoldNum, related_name = 'sold_order_items', on_delete = models.CASCADE, blank=True, default=None, null = True)
     def get_cost(self):
         return self.price * self.amount
@@ -118,8 +134,9 @@ class PurchaseNum(models.Model):   # Purchas_Num -> PurchaseNum
     #import Purchas from .
     id = models.AutoField(primary_key = True)
     num = models.CharField('purchase_num', max_length=200)
-    purchase_date = models.DateTimeField('purchase_date', blank=True, default=datetime.datetime.now, null = True)
+    created_at = models.DateTimeField('purchase_date', blank=True, default=timezone.now, null = True)
     #purchase = models.ManyToManyField(Purchase, blank=True, default=None, null = True)
+    updated_at = models.DateTimeField(default=timezone.now)
     def __str__(self):
         return self.num
     def get_total_cost(self):
@@ -132,6 +149,8 @@ class Purchase(models.Model):
     price = models.DecimalField('purchase_expenses', max_digits=10, decimal_places=0, default = 0)
     reason =  models.CharField('purchase_reason', max_length=1, choices = REASON, blank = True, null = True, default = 'p')    #enum
     # Purchas_Num -> PurchaseNum
+    created_at = models.DateField(default=timezone.now)
+    updated_at = models.DateTimeField(default=timezone.now)
     purchase_num = models.ForeignKey(PurchaseNum, related_name = 'purchase_items', on_delete = models.CASCADE, blank=True, default=None, null = True)
     memo = models.TextField('purchase_memo', blank=True, default=None, null = True)
     product = models.ForeignKey(Product, related_name = 'purchase_order_items', on_delete = models.CASCADE, blank=True, default=None, null = True)
