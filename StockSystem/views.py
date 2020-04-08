@@ -141,7 +141,7 @@ def show_sold_num_list(request):
     return render(request, "sold_num_list.html", locals())
 
 def new_sold_num(request):
-    print("new sold num"+ request.session['sold_num'])
+    #print("new sold num"+ request.session['sold_num'])
     #del request.session['sold_num']
     if request.method == 'POST':
         sold_num = models.SoldNum()
@@ -173,10 +173,10 @@ def show_sold_list(request):
 
 
 def sel_session(request):
-    print("sold_num=======" + request.session['sold_num'])
+    #print("sold_num=======" + request.session['sold_num'])
     if request.method == 'POST':
         try:
-            print(request.POST.get('selsession', ""))
+            #print(request.POST.get('selsession', ""))
             request.session['sold_num'] = request.POST.get('selsession', "")
             print("set session success")
         except Exception as e:
