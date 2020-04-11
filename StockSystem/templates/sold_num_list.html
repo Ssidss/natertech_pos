@@ -13,17 +13,13 @@
                     <p>Sold List</p>
                 </div>
                 <div class='panel-heading'>
-                    {%csrf_token%}
                     <a href = '/'>Home</a>
                     <nav class="nav nav-expand-sm">
                         <div class="container-fluid">
                                 <div id="toolbar" class="btn-group">
-                                    <form name = 'soldnew', action = '/soldsystem/sold_num/new/', method = 'POST'>
+                                    <form name = 'soldnumnew', action = '/soldsystem/sold_num/new/', method = 'POST'>
                                         {%csrf_token%}
-                                        <table>
-                                            {{sold_num_form.as_table}}
-                                        </table>
-                                        <input type = 'submit' value='Create New Sold Number' class="btn btn-dark" name = 'soldnew'>
+                                        <input type = 'submit' value='Create New Sold Number' class="btn btn-dark" name = 'soldnumnew'>
                                     </form>
                                     <!--
                                     <button id="btn_add" type="button" class="btn btn-dark">
@@ -119,9 +115,9 @@ var TableInit = function () {
             	{field:'checkbox', title:'選取', align:'center', width:80, visible:true, checkbox:true},
                 //{field:'id', title:'ID', align:'center', width:60, visible:true, sortable:true, 
             	//	formatter: function(value){ return '<a href = "/customers/'+value+'">'+value+'</a>'; } },
-                {field:'sold_num', title:'Sold Number', align:'center', visible:true, sortable:true},
-                {field:'total_price', title:'Total Price', align:'left', width:200, visible:true, sortable:true},
-                {field:'distribute', title:'Distribute', align:'left', width:200, visible:true, sortable:true},
+                {field:'sold_num', title:'Sold Number', align:'center', width:300, visible:true, sortable:true},
+                {field:'total_price', title:'Total Price', align:'left', width:100, visible:true, sortable:true},
+                //{field:'distribute', title:'Distribute', align:'left', width:100, visible:true, sortable:true},
                 //{field:'ind', title:'modify', align:'center', visible:true,
                 //	formatter: function(value){ return  '<a href = "/product/'+value+'"><i class="fas btn-dark fa-eye" ></i></a>';} }
                 {field:'selsession', title:'Select Sold Number', align:'center', visible:true,
@@ -129,7 +125,13 @@ var TableInit = function () {
                                                        '{%csrf_token%}'+
                                                        '<input type = "hidden" name = "selsession" id = "selsession" value = "'+value+'">'+
                                                        '<input type = "submit" class = "btn btn-dark" value = "view" name = "submitsession">'+
-                                                       '</form>';}}
+                                                       '</form>';}},
+                {field:'delete', title:'Delete', align:'center', visible:true,
+                    formatter: function(value){ return '<form name = "deletenum" action = "/soldsystem/sold_num/delete/" method = "POST">'+
+                                                        '{%csrf_token%}'+
+                                                        '<input type = "hidden" name = "num_id" id = "num_id" value = "'+value+'">'+
+                                                        '<input type = "submit" class = "btn btn-dark" value = "Delete" name = "deletenum">'+
+                                                        '</form>'; }}
                 //{field:'modifyById', title:'<fmt:message key="general.operate"/>', align:'center', visible:true,
                 //	formatter: function(value){ return  '<a href = "/customers/'+value+'"><i class="fas fa-eye"></i></a>'+
                 //										'<a href = "/customers/update/'+value+'"><i class="fas fa-pencil-alt"></i></a>'+
@@ -163,7 +165,8 @@ function getData() { //修改資料
 	      sold_num: "{{sold_num.num}}",	      	      
 	      total_price: "{{sold_num.get_total_cost}}",
 	      distribute: "{{sold_num.distribute}}",
-          selsession: "{{sold_num.num}}"
+          selsession: "{{sold_num.num}}",
+          delete: "{{sold_num.id}}"
 	   });
 	  {%endfor%}
 	  //}

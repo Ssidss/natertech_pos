@@ -6,30 +6,60 @@
     {%for message in messages %}
     <div class='alert alert-{{message.tags}}'>{{message}}</div>
     {%endfor%}
-        <p>Sold List</p>
-        <p>{{session_name}}</p>
-            <div>
-                {%if sold_list%}
-                <form name = 'checkout' action = '/soldsystem/checkout/' method = 'POST'>
-                {%csrf_token%}
-                <input type = 'submit' value = 'Checkout' class = "btn btn-dark" name = 'checkout'>
-                </form>
-                {%else%}
-                {%endif%}
+        <div>
+                {%include 'layout/selfivenumber.html'%}
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td>Sold Number</td>
+                    <td>{{session_name}}</td>
+                </tr>
+                <tr>
+                    <td>Total Cost</td>
+                    <td>{{total_cost}}</td>
+                </tr>
+            <table>
+        </div>
+        <nav class="nav nav-expand-sm">
+            <div class="container-fluid">
+                    <div id="toolbar" class="btn-group">
+                        {%if sold_list%}
+                        <form name = 'checkout' action = '/soldsystem/checkout/' method = 'POST'>
+                        {%csrf_token%}
+                        <button type = 'submit' value = 'Checkout' class = "btn btn-dark" name = 'checkout'>
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Checkout</button>
+                        </form>
+                        {%else%}
+                        {%endif%}
+                    <div>
             </div>
+        </nav>
+        {%if sold_list%}
+        <nav class="nav nav-expand-sm">
+            <table id="table_sold_list"></table>
+        </nav>
+        {%endif%}  
+        <div>
             {%if sold_list%}
-            <nav class="nav nav-expand-sm">
-                <table id="table_sold_list"></table>
-            </nav>
+            <form name = 'checkout' action = '/soldsystem/checkout/' method = 'POST'>
+            {%else%}
+            <form name = 'checkout' action = '/soldsystem/sold_num/delete/' method = 'POST'>
+            <input type = 'hidden' value = '{{sold_num.id}}' id = "num_id" name = 'num_id'>
             {%endif%}
-                    <a href = '/'>Home</a>              
-                <form name = 'soldnew' action = '/sold/new/' method = 'POST'>
-                    {%csrf_token%}
-                    <table>
-                        {{newsold.as_table}}
-                    </table>
-                    <input type = 'submit' value='Create New Sold' class="btn btn-dark" name = 'soldnew'>
-                </form>
+            {%csrf_token%}
+            <input type = 'submit' value = 'Checkout' class = "btn btn-dark" name = 'checkout'>
+            </form>
+        </div>
+                  
+        <form name = 'soldnew' action = '/sold/new/' method = 'POST'>
+            {%csrf_token%}
+            <table>
+                {{newsold.as_table}}
+            </table>
+            <input type = 'submit' value='Create New Sold' class="btn btn-dark" name = 'soldnew'>
+        </form>
+        
 
 
 

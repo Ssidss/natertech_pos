@@ -96,7 +96,7 @@ class SoldNum(models.Model): # Sold_Nun -> SoldNum
     def get_total_cost(self):
         return sum(item.get_cost() for item in self.sold_order_items.all())
     def set_num(self):
-        if not self.num:
+        if len(self.num) <= 26:
             number = ""
             number += str(datetime.datetime.now())
             number += "cost-"
@@ -104,10 +104,12 @@ class SoldNum(models.Model): # Sold_Nun -> SoldNum
             # number += str(self.id)
             self.num = number
             self.sold_date = datetime.date.today()
-        else:
-            number = number[:27] 
-            number += "cost-"
-            number += str(self.get_total_cost())
+        elif len(self.num) > 26 :
+            print("set num add cost")
+            number = self.num
+            print(number[:26])
+            print(self.get_total_cost)
+            number = number[:26] + "cost-" + str(self.get_total_cost())
             self.num = number
 
 class Sold(models.Model):

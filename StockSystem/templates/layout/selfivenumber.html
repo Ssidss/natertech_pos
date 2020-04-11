@@ -1,0 +1,9 @@
+<form name = "fivesoldnum" class = "form-inline my-2 my-lg-0" action = "/selsession/" method = "POST">
+    {% csrf_token %}
+    <select name = "selsession" class="form-control mr-sm-2">
+        {%for num in five_sold_num_list%}
+            <option value = "{{num}}">{{num}}</option>
+        {%endfor%}
+    <select>
+    <button type = "submit" value = "view" class="btn btn-outline-success my-2 my-sm-0" name = "fivesoldnum">View</button>
+</form>
