@@ -69,7 +69,7 @@ def imgtest(url, product_number, name):
 def main():
 	num_list, product_name = Product_num_list()
 	for number, name in zip(num_list, product_name):
-		imgtest("http://localhost:8000/product/", number[0], name[0])
+		imgtest("http://nater-pos.natertek.com/sold/", number[0], name[0])
 #	print(num_list.fetchall())
 #	qrcodegenerator(num_list.fetchone())
 

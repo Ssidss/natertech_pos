@@ -23,7 +23,7 @@
                                         <table>
                                             {{sold_num_form.as_table}}
                                         </table>
-                                        <input type = 'submit' value='Create New Sold' class="btn btn-dark" name = 'soldnew'>
+                                        <input type = 'submit' value='Create New Sold Number' class="btn btn-dark" name = 'soldnew'>
                                     </form>
                                     <!--
                                     <button id="btn_add" type="button" class="btn btn-dark">
@@ -128,7 +128,7 @@ var TableInit = function () {
                     formatter: function(value){ return '<form name = "selsubmitsession" action = "/selsession/" method = "POST">'+
                                                        '{%csrf_token%}'+
                                                        '<input type = "hidden" name = "selsession" id = "selsession" value = "'+value+'">'+
-                                                       '<input type = "submit" class = "btn btn-dark" value = "set session" name = "submitsession">'+
+                                                       '<input type = "submit" class = "btn btn-dark" value = "view" name = "submitsession">'+
                                                        '</form>';}}
                 //{field:'modifyById', title:'<fmt:message key="general.operate"/>', align:'center', visible:true,
                 //	formatter: function(value){ return  '<a href = "/customers/'+value+'"><i class="fas fa-eye"></i></a>'+

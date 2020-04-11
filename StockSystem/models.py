@@ -90,6 +90,7 @@ class SoldNum(models.Model): # Sold_Nun -> SoldNum
     distribute = models.CharField('sold_distribute', max_length=1,choices = DISTRIBUTE, blank = True, default = None, null = True)  #eunm
     #sold = models.ManyToManyField(Sold, blank=True, default=None, null = True)
     updated_at = models.DateTimeField(default=timezone.now)
+    checkout = models.BooleanField('sold_num_checkout', default = False)
     def __str__(self):
         return self.num
     def get_total_cost(self):
@@ -122,6 +123,7 @@ class Sold(models.Model):
     created_at = models.DateField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)
     sold_num = models.ForeignKey(SoldNum, related_name = 'sold_order_items', on_delete = models.CASCADE, blank=True, default=None, null = True)
+    checkout = models.BooleanField('sold_num_checkout', default = False)
     def get_cost(self):
         return self.price * self.amount
     def __str__(self):
@@ -137,6 +139,7 @@ class PurchaseNum(models.Model):   # Purchas_Num -> PurchaseNum
     created_at = models.DateTimeField('purchase_date', blank=True, default=timezone.now, null = True)
     #purchase = models.ManyToManyField(Purchase, blank=True, default=None, null = True)
     updated_at = models.DateTimeField(default=timezone.now)
+    checkout = models.BooleanField('sold_num_checkout', default = False)
     def __str__(self):
         return self.num
     def get_total_cost(self):
@@ -156,6 +159,7 @@ class Purchase(models.Model):
     product = models.ForeignKey(Product, related_name = 'purchase_order_items', on_delete = models.CASCADE, blank=True, default=None, null = True)
     supplier = models.ForeignKey(Supplier, on_delete = models.CASCADE, blank=True, default=None, null = True)
     category = models.ForeignKey(Category, on_delete = models.CASCADE, blank=True, default=None, null = True)
+    checkout = models.BooleanField('sold_num_checkout', default = False)
     def get_cost(self):
         return self.price * self.amount
     def __str__(self):

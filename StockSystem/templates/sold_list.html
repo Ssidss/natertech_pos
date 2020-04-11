@@ -8,13 +8,22 @@
     {%endfor%}
         <p>Sold List</p>
         <p>{{session_name}}</p>
+            <div>
+                {%if sold_list%}
+                <form name = 'checkout' action = '/soldsystem/checkout/' method = 'POST'>
+                {%csrf_token%}
+                <input type = 'submit' value = 'Checkout' class = "btn btn-dark" name = 'checkout'>
+                </form>
+                {%else%}
+                {%endif%}
+            </div>
             {%if sold_list%}
             <nav class="nav nav-expand-sm">
                 <table id="table_sold_list"></table>
             </nav>
             {%endif%}
                     <a href = '/'>Home</a>              
-                <form name = 'soldnew', action = '/sold/new/', method = 'POST'>
+                <form name = 'soldnew' action = '/sold/new/' method = 'POST'>
                     {%csrf_token%}
                     <table>
                         {{newsold.as_table}}
@@ -89,7 +98,13 @@ var TableInit = function () {
                 {field:'name', title:'Product Name', align:'left', width:200, visible:true, sortable:true},
                 {field:'amount', title:'Amount', align:'left', width:200, visible:true, sortable:true},
                 {field:'price', title:'Price', align:'left', width:200, visible:true, sortable:true},
-                {field:'cost', title:'Cost', align:'left', width:200, visible:true, sortable:true}
+                {field:'cost', title:'Cost', align:'left', width:200, visible:true, sortable:true},
+                {field:'checkout', title:'checkout', align:'center', width:50, visible:true},
+                {field:'delete', title:'delete', align:'center', width:50, visible:true,
+                    formatter: function(value){ return '<form name = "delete_sold" action = "/sold/delete/" method = "POST">'+
+                    '{%csrf_token%}'+
+                    '<input type = "hidden" name = "sold_id" value = "'+value+'">'+
+                    '<input type = "submit" class = "btn btn-dark" value = "Delete" name = "delete_sold"></form';} }
                 //{field:'ind', title:'modify', align:'center', visible:true,
                 //	formatter: function(value){ return  '<a href = "/product/'+value+'"><i class="fas btn-dark fa-eye" ></i></a>';} }
 
@@ -126,8 +141,13 @@ function getData() { //修改資料
           name: "{{sold.product}}",
 	      amount: "{{sold.amount}}",
           price: "{{sold.price}}",
-          cost: "{{sold.get_cost}}"
-
+          cost: "{{sold.get_cost}}",
+          {% if sold.checkout %}
+            checkout: "<i class=\"far fa-check-square\"></i>",
+          {%else%}
+            checkout: "",
+          {%endif%}
+          delete: "{{sold.id}}"
 	   });
 	  {%endfor%}
 	  //}
