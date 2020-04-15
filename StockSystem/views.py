@@ -11,6 +11,7 @@ def index_page(request):
 
 # url = "product"
 def product_list(request):
+    product = True
     try:
         Product_all = models.Product.objects.all()
         print("all success")
@@ -20,6 +21,7 @@ def product_list(request):
 
 # url = "prouct/<slug:product_num>"
 def product_view(request, p_num = None):
+    product = True
     ProductForm = forms.Product()
     Productcontext = models.Product()
     if request.method == 'GET':
@@ -48,6 +50,7 @@ def product_view(request, p_num = None):
 
 # url = "purchase/<slug:product_num>"
 def purchase_page(request, product_num = None):
+    purchase = True
     # If request method is Get
     Product = models.Product.objects.get(product_num = product_num)
             # Create Purchase Form 
@@ -82,6 +85,7 @@ def purchase_page(request, product_num = None):
 
 # url = "sold/<slug:product_num>"
 def sold_page(request, product_num = None):
+    soldsystem = True
     try:
         product = models.Product.objects.get(product_num = product_num)
     except Exception as e:
@@ -130,6 +134,7 @@ def sold_page(request, product_num = None):
 
 # url = "soldsystem/sold_num/list/"
 def show_sold_num_list(request):
+    soldsystem = True
     if request.method == 'GET':
         sold_num_list = models.SoldNum.objects.all().order_by('-id')
         sold_num_form = forms.SoldNum()
@@ -142,6 +147,7 @@ def show_sold_num_list(request):
 def new_sold_num(request):
     #print("new sold num"+ request.session['sold_num'])
     #del request.session['sold_num']
+    soldsystem = True
     if request.method == 'POST':
         sold_num = models.SoldNum()
         sold_num.set_num()
@@ -154,6 +160,7 @@ def new_sold_num(request):
 
 # url = "soldsystem/sold_num/delete"
 def delete_sold_nun(request):
+    soldsystem = True
     try:
         num_id = request.POST.get("num_id")
         sold_num = models.SoldNum.objects.get(id = num_id)
@@ -171,6 +178,7 @@ def delete_sold_nun(request):
 
 # url = "soldsystem/sold/list" get by session
 def show_sold_list(request):
+    soldsystem = True
     if request.method == 'GET':
         try:
             five_sold_num_list = models.SoldNum.objects.filter().order_by('-id')[:5]
@@ -195,6 +203,7 @@ def show_sold_list(request):
 
 # url = "soldsystem/checkout
 def sold_checkout(request):
+    #soldsystem = True
     if request.method == 'POST':
         try:
             sel_session = request.session['sold_num']
@@ -226,6 +235,7 @@ def sold_checkout(request):
 
 # url = "selsession"
 def sel_session(request):
+    #soldsystem = True
     #print("sold_num=======" + request.session['sold_num'])
     if request.method == 'POST':
         try:

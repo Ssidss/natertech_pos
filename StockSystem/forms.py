@@ -39,12 +39,10 @@ class Purchase(forms.ModelForm):
 class Sold(forms.ModelForm):
     class Meta:
         model = models.Sold
-        #widgets = {
-        #    'sold_date': DateInput(),
-        #}
-        fields = ['product', 'amount', 'price', 'reason', 'fee', 'memo', 'sold_num']
+        fields = ['product', 'price', 'reason', 'fee', 'memo', 'sold_num']
     def __init__(self, *args, **kwargs):
         super(Sold, self).__init__(*args, **kwargs)
+        self.fields['amount'].widget.attrs.update({'step': '1'})
         #self.fields['volume'].label = 'volume'
 
 class SoldNum(forms.ModelForm):

@@ -3,12 +3,12 @@ from django.db import models
 import datetime
 from django.utils.html import format_html
 from django.utils import timezone
-timezone.now
 
 
 STOCK_STATUS = (('n', "none"), ('l', "less then 5"), ('s', "sufficient"))
 REASON = (('s', "sold"), ('d', "discount"), ('r', "return"), ('b', "broken"), ('p', 'pruchase'))
 DISTRIBUTE = (('r', "retailer"), ('s', "shapee"))
+PLANT_SIZE = ((1, '1'), (2, '2'), (3, '3'), (4, 'other')) # 4 for other
 
 class Category(models.Model):
     id = models.AutoField(primary_key=True)
@@ -61,7 +61,7 @@ class Product(models.Model):
     width = models.FloatField("product_width", blank = True, null = True, default = 0.0)
     high = models.FloatField("product_high", blank = True, null = True, default = 0.0)
     estimated_price = models.FloatField("product_estimated_price", blank = True, null = True, default= 0.0)
-    plant_size = models.PositiveIntegerField("product_plant_size", blank = True, null = True, default = 0)
+    plant_size = models.PositiveIntegerField("product_plant_size", blank = True, choices = PLANT_SIZE,null = True, default = 0)
     created_at = models.DateField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)
     def setStock_Status(self):
