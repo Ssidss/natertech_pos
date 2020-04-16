@@ -3,7 +3,7 @@
         {% csrf_token %}
         <label>Recently five record: </label>
         <select name = "selsession" class="form-control mr-sm-2">
-            {%for num in five_sold_num_list%}
+            {%for num in five_num_list%}
                 <option value = "{{num}}">{{num}}</option>
             {%endfor%}
         <select>

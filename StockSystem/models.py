@@ -124,7 +124,7 @@ class Sold(models.Model):
     price = models.DecimalField('sold_revenue', max_digits=10, decimal_places = 0, default = 0)    
     reason = models.CharField('sold_reason', max_length=1,choices = REASON, blank = True, null = True, default = 's')   #enum
     memo = models.TextField('sold_memo', blank=True, default=None, null = True)
-    product = models.ForeignKey(Product, related_name = 'sold_items', on_delete = models.CASCADE, blank=True, default=None, null = True)
+    product = models.ForeignKey(Product, related_name = 'sold_items', on_delete = models.CASCADE, default = 1)
     fee = models.IntegerField('sold_fee', blank = True, default = 0)
     # Sold_Nun -> SoldNum
     created_at = models.DateField(default=timezone.now)
@@ -182,7 +182,7 @@ class Purchase(models.Model):
     updated_at = models.DateTimeField(default=timezone.now)
     purchase_num = models.ForeignKey(PurchaseNum, related_name = 'purchase_order_items', on_delete = models.CASCADE, blank=True, default=None, null = True)
     memo = models.TextField('purchase_memo', blank=True, default=None, null = True)
-    product = models.ForeignKey(Product, related_name = 'purchase_items', on_delete = models.CASCADE, blank=True, default=None, null = True)
+    product = models.ForeignKey(Product, related_name = 'purchase_items', on_delete = models.CASCADE, default=1)
     category = models.ForeignKey(Category, on_delete = models.CASCADE, blank=True, default=None, null = True)
     checkout = models.BooleanField('sold_num_checkout', default = False)
     def get_cost(self):

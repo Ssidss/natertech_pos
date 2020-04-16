@@ -145,7 +145,8 @@ def show_purchase_list(request):
     selsystem = "purchasesystem"
     if request.method == 'GET':
         try:
-            five_sold_num_list = models.PurchaseNum.objects.filter().order_by('-id')[:5]
+            five_num_list = models.PurchaseNum.objects.filter().order_by('-id')[:5]
+
         except Exception as e:
             print(e)
         try:
@@ -311,7 +312,8 @@ def show_sold_list(request):
     selsystem = "soldsystem"
     if request.method == 'GET':
         try:
-            five_sold_num_list = models.SoldNum.objects.filter().order_by('-id')[:5]
+            five_num_list = models.SoldNum.objects.filter().order_by('-id')[:5]
+            five_num_list = zip(five_num_list, five_num_list[10:])
         except Exception as e:
             print(e)
         try:
