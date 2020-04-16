@@ -9,20 +9,11 @@ class DateTimeInput(forms.DateTimeInput):
     input_type = 'datetime'
 
 class Product(forms.ModelForm):
-    
     class Meta:
         model = models.Product
         fields = '__all__'
     def __init__(self, *args, **kwargs):
         super(Product, self).__init__(*args, **kwargs)
-        self.fields['name'].label = 'name'
-        self.fields['amount'].label = 'amount'
-        self.fields['product_num'].label = 'product_number'
-        self.fields['stock_status'].label = 'stock_status'
-        self.fields['family'].label = 'family'
-        self.fields['genus'].label = 'genus'
-        self.fields['supplier'].label = 'supplier'
-        self.fields['category'].label = 'category'
 
 class Purchase(forms.ModelForm):
     class Meta:
@@ -30,21 +21,27 @@ class Purchase(forms.ModelForm):
         #widgets = {
         #    'purchase_date': DateInput(),
         #}
-        fields = ['amount', 'price', 'reason', 'supplier', 'category', 'memo']
+        fields = ['product', 'amount', 'price', 'reason', 'category',
+        'memo', 'purchase_num']
     def __init__(self, *args, **kwargs):
         super(Purchase, self).__init__(*args, **kwargs)
         #self.fields['product'].widget.attrs['readonly'] = True
         #self.fields['volume'].label = 'volume'
 
+class PurchaseNum(forms.ModelForm):
+    class Meta:
+        model = models.PurchaseNum
+        fields = ['supplier']
+    def __init__(self, *args, **kwargs):
+        super(PurchaseNum, self).__init__(*args, **kwargs)
+
 class Sold(forms.ModelForm):
     class Meta:
         model = models.Sold
-        fields = ['product', 'price', 'reason', 'fee', 'memo', 'sold_num']
+        fields = ['product', 'amount', 'price', 'reason', 'fee', 'memo', 'sold_num']
     def __init__(self, *args, **kwargs):
         super(Sold, self).__init__(*args, **kwargs)
-        self.fields['amount'].widget.attrs.update({'step': '1'})
-        #self.fields['volume'].label = 'volume'
-
+        
 class SoldNum(forms.ModelForm):
     class Meta:
         model = models.SoldNum

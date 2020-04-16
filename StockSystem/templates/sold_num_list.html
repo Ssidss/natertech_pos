@@ -10,7 +10,6 @@
         <div class='col-md-12'>
             <div class='panel panel-default'>
                 <div class='panel-heading' align=center>
-                    <p>Sold List</p>
                 </div>
                 <div class='panel-heading'>
                     <nav class="nav nav-expand-sm">
@@ -120,7 +119,7 @@ var TableInit = function () {
                 //{field:'ind', title:'modify', align:'center', visible:true,
                 //	formatter: function(value){ return  '<a href = "/product/'+value+'"><i class="fas btn-dark fa-eye" ></i></a>';} }
                 {field:'selsession', title:'Select Sold Number', align:'center', visible:true,
-                    formatter: function(value){ return '<form name = "selsubmitsession" action = "/selsession/" method = "POST">'+
+                    formatter: function(value){ return '<form name = "selsubmitsession" action = "/soldsystem/selsession/" method = "POST">'+
                                                        '{%csrf_token%}'+
                                                        '<input type = "hidden" name = "selsession" id = "selsession" value = "'+value+'">'+
                                                        '<input type = "submit" class = "btn btn-dark" value = "view" name = "submitsession">'+
@@ -162,7 +161,7 @@ function getData() { //修改資料
 	  {%for sold_num in sold_num_list%}
 	    data.push({
 	      sold_num: "{{sold_num.num}}",	      	      
-	      total_price: "{{sold_num.get_total_cost}}",
+	      total_price: "{{sold_num.total_cost}}",
 	      distribute: "{{sold_num.distribute}}",
           selsession: "{{sold_num.num}}",
           delete: "{{sold_num.id}}"

@@ -25,20 +25,24 @@ urlpatterns = [
     path(r'admin/', admin.site.urls),
     path('product/<slug:p_num>/', stock_views.product_view),
     path('product/', stock_views.product_list),
+    # purchase 進貨
     path('purchase/<slug:product_num>/', stock_views.purchase_page),
-    #path('purchase/create/', views.purchase_create),
-    path('sold/<slug:product_num>/', stock_views.sold_page),
-    #path('delete/sold/', stock_views.delete_sold),
-    #path('sold/new/', stock_views.sold_page),
+    path('purchasesystem/purchase_num/list/', stock_views.show_purchase_num_list),
+    path('purchasesystem/purchase_num/new/', stock_views.new_purchase_num),
+    path('purchasesystem/purchase_num/delete/', stock_views.delete_purchase_num),
+    path('purchasesystem/purchase/list/', stock_views.show_purchase_list),
+    path('purchasesystem/checkout/', stock_views.purchase_checkout),
+    path('purchasesystem/selsession/', stock_views.purchase_selsession),
     path('', stock_views.index_page),
-    #path('product/<slug:p_num>/update/', views.ProductUpdate.as_view(), name = 'product_update'),
     re_path('^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT }),
     path('product_analysis/', ana_views.product_list_analysis),
     path('product_analysis/<slug:product_num>/', ana_views.product_analysis),
+    # solesystem 出貨
+    path('sold/<slug:product_num>/', stock_views.sold_page),
     path('soldsystem/sold_num/list/', stock_views.show_sold_num_list),
     path('soldsystem/sold_num/new/', stock_views.new_sold_num),
+    path('soldsystem/sold_num/delete/', stock_views.delete_sold_nun),
     path('soldsystem/sold/list/', stock_views.show_sold_list),
     path('soldsystem/checkout/', stock_views.sold_checkout),
-    path('soldsystem/sold_num/delete/', stock_views.delete_sold_nun),
-    path('selsession/', stock_views.sel_session)
+    path('soldsystem/selsession/', stock_views.sel_session)
 ]

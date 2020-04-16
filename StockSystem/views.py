@@ -4,6 +4,7 @@ from django.http import JsonResponse, HttpResponseRedirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 import datetime 
 from django.contrib.sessions.models import Session
+from django.utils import timezone
 
 # url = "/"
 def index_page(request):
@@ -11,7 +12,7 @@ def index_page(request):
 
 # url = "product"
 def product_list(request):
-    product = True
+    productsystem = True
     try:
         Product_all = models.Product.objects.all()
         print("all success")
@@ -21,7 +22,7 @@ def product_list(request):
 
 # url = "prouct/<slug:product_num>"
 def product_view(request, p_num = None):
-    product = True
+    productsystem = True
     ProductForm = forms.Product()
     Productcontext = models.Product()
     if request.method == 'GET':
@@ -50,38 +51,163 @@ def product_view(request, p_num = None):
 
 # url = "purchase/<slug:product_num>"
 def purchase_page(request, product_num = None):
-    purchase = True
-    # If request method is Get
-    Product = models.Product.objects.get(product_num = product_num)
-            # Create Purchase Form 
-    PurchaseForm = forms.Purchase(initial = {'product': Product})
+    purchasesystem = True
+    try:
+        product = models.Product.objects.get(product_num = product_num)
+    except Exception as e:
+        print (e)
+        product = None
+    try:
+        print("purchase Number is "+request.session['purchase_num'])
+        purchasenum = models.PurchaseNum.objects.get(num = request.session['purchase_num'])
+        total_cost = purchasenum.get_total_cost
+        if product:
+            PurchaseForm = forms.Purchase(initial = {'price': product.estimated_price, 'product': product, 'purchase_num': purchasenum})
+        else:
+            PurchaseForm = forms.Purchase(initial = {'purchase_num': purchasenum})
+    except Exception as e:
+        print (e)
+        return redirect("/purchasesystem/purchase_num/list")
     if request.method == 'GET':
         try: 
             pass
-            # Get Product detail
-            #Product = models.Product.objects.get(product_num = product_num)
-            # Create Purchase Form 
-            #PurchaseForm = forms.Purchase(initial = {'product': Product})
-
         except Exception as e:
             print(e)
     # If request mehtof is POST
-    elif request.method == 'POST':
+    elif request.method == 'POST':  # save purchase
+        # delete method
+        if product_num == 'delete':
+            try:
+                purchase = models.Purchase.objects.get(id = request.POST.get('purchase_id'))#.delete()
+                if purchase.checkout:
+                    purchase.product.amount += purchase.amount
+                    purchase.product.save()
+                purchase.delete()
+                print("Delete Success")
+            except Exception as e:
+                print(e)
+                print("delete fail")
+            return redirect("/purchasesystem/purchase/list/")
         try:
-            print("here")
             PurchaseForm = forms.Purchase(request.POST)
             if PurchaseForm.is_valid():
                 PurchaseForm.save()
-                Product = models.Product.objects.get(product_num = product_num)
-                Product.amount += PurchaseForm.cleaned_data['amount']
-                Product.setStock_Status()
-                Product.save()
-                return redirect('/admin')
+                return HttpResponseRedirect('/purchasesystem/purchase/list/')
+        except Exception as e:
+            print(e)
+    return render(request, "purchase/purchase_page.html", locals())
+        
+
+    return render(request, 'purchase/purchase_page.html', locals())
+# url = "purchasesystem/purchase_num/list/"
+def show_purchase_num_list(request):
+    purchasesystem = True
+    if request.method == 'GET':
+        purchase_num_list = models.PurchaseNum.objects.all().order_by('-id')
+        purchase_num_form = forms.PurchaseNum()
+    else:
+        pass
+        #redirect 404
+    return render(request, "purchase/purchase_num_list.html", locals())
+
+#url = "purchasesystem/purchase_num/new/"
+def new_purchase_num(request):
+    if request.method == 'POST':
+        purchase_num = models.PurchaseNum()
+        purchase_num.set_num()
+        purchase_num.supplier = models.Supplier.objects.get(id = (request.POST.get('supplier', '')))
+        purchase_num.save()
+        request.session['purchase_num'] = purchase_num.num
+    return redirect("/purchasesystem/purchase/list") # Sold list by Number
+    #return render(request, "sold_cart.html", locals())
+
+#url = "purchasesystem/purchase_num/delete"
+def delete_purchase_num(request):
+    try:
+        num_id = request.POST.get("num_id")
+        purchase_num = models.PurchaseNum.objects.get(id = num_id)
+        purchase_list = models.Purchase.objects.filter(purchase_num = num_id)
+        for purchase in purchase_list:
+            if purchase.checkout:
+                purchase.product.amount -= purchase.amount
+                #sold.product.update_at = timezone.now
+                purchase.product.save()
+            purchase.delete()
+        purchase_num.delete()
+    except Exception as e:
+        print(e)
+        
+    return redirect("/purchasesystem/purchase_num/list")
+
+#url = "purchasesystem/purchase/list/"
+def show_purchase_list(request):
+    purchasesystem = True
+    selsystem = "purchasesystem"
+    if request.method == 'GET':
+        try:
+            five_sold_num_list = models.PurchaseNum.objects.filter().order_by('-id')[:5]
+        except Exception as e:
+            print(e)
+        try:
+            if not request.session['purchase_num']:
+                message = "Select a Purchase Number"
+            else:
+                session_name = request.session['purchase_num']
+                purchase_num = models.PurchaseNum.objects.get(num = request.session['purchase_num'])
+                purchase_list = models.Purchase.objects.filter(purchase_num = purchase_num)
+                if all(purchase.checkout for purchase in purchase_list) and purchase_num.total_cost:
+                    total_cost = purchase_num.total_cost 
+                else:
+                    total_cost = purchase_num.get_total_cost()
+            newpurchase = forms.Purchase(initial = {'purchase_num' : purchase_num}) 
+            return render(request, "purchase/purchase_list.html", locals())
+        except Exception as e:
+            print(e)
+            print("purchase_list error")
+            return redirect("/purchasesystem/purchase_num/list/")
+    elif request.method == 'POST':
+        return redirect("/purchasesystem/purchase/list/")
+
+#url = "purchasesystem/checkout/"
+def purchase_checkout(request):
+    if request.method == 'POST':
+        try:
+            sel_session = request.session['purchase_num']
+            purchase_num = models.PurchaseNum.objects.get(num = sel_session)
+            purchase_list = models.Purchase.objects.filter(purchase_num = purchase_num)
+            purchase_num.checkout = True
+            for purchase in purchase_list:
+                if purchase.checkout == True:
+                    print("sold True")
+                    continue
+                else:
+                    purchase.checkout = True
+                    purchase.product.amount += purchase.amount
+                    purchase.product.setStock_Status()
+                    purchase.product.save()
+                    purchase.save()
+            purchase_num.total_cost = request.POST.get('total_cost')
+            purchase_num.set_num()
+            purchase_num.save()
+            print("save success")
+            del request.session
+            #print("checkout success")
+            
+        except Exception as e:
+            print(e)
+        return redirect("/purchasesystem/purchase_num/list")  
+
+#url = "purchase/selsession/"
+def purchase_selsession(request):
+    if request.method == 'POST':
+        try:
+            #print(request.POST.get('selsession', ""))
+            request.session['purchase_num'] = request.POST.get('selsession', "")
+            print("set session success")
         except Exception as e:
             print(e)
         
-
-    return render(request, 'purchase_page.html', locals())
+        return redirect("/purchasesystem/purchase/list")
 
 # url = "sold/<slug:product_num>"
 def sold_page(request, product_num = None):
@@ -95,7 +221,7 @@ def sold_page(request, product_num = None):
     try:
         print("sold Number is "+request.session['sold_num'])
         soldnum = models.SoldNum.objects.get(num = request.session['sold_num'])
-        total_prict = soldnum.get_total_cost()
+        total_cost = soldnum.get_total_cost
         if product:
             SoldForm = forms.Sold(initial = {'price': product.estimated_price, 'product': product, 'sold_num': soldnum})
         else:
@@ -116,6 +242,7 @@ def sold_page(request, product_num = None):
                 sold = models.Sold.objects.get(id = request.POST.get('sold_id'))#.delete()
                 if sold.checkout:
                     sold.product.amount += sold.amount
+                    #sold.product.update_at = timezone.now
                     sold.product.save()
                 sold.delete()
                 print("Delete Success")
@@ -147,7 +274,7 @@ def show_sold_num_list(request):
 def new_sold_num(request):
     #print("new sold num"+ request.session['sold_num'])
     #del request.session['sold_num']
-    soldsystem = True
+    #soldsystem = True
     if request.method == 'POST':
         sold_num = models.SoldNum()
         sold_num.set_num()
@@ -160,7 +287,7 @@ def new_sold_num(request):
 
 # url = "soldsystem/sold_num/delete"
 def delete_sold_nun(request):
-    soldsystem = True
+    #soldsystem = True
     try:
         num_id = request.POST.get("num_id")
         sold_num = models.SoldNum.objects.get(id = num_id)
@@ -168,6 +295,7 @@ def delete_sold_nun(request):
         for sold in sold_list:
             if sold.checkout:
                 sold.product.amount += sold.amount
+                #sold.product.update_at = timezone.now
                 sold.product.save()
             sold.delete()
         sold_num.delete()
@@ -177,8 +305,10 @@ def delete_sold_nun(request):
     return redirect("/soldsystem/sold_num/list")
 
 # url = "soldsystem/sold/list" get by session
+# checkout detail
 def show_sold_list(request):
     soldsystem = True
+    selsystem = "soldsystem"
     if request.method == 'GET':
         try:
             five_sold_num_list = models.SoldNum.objects.filter().order_by('-id')[:5]
@@ -190,8 +320,11 @@ def show_sold_list(request):
             else:
                 session_name = request.session['sold_num']
                 sold_num = models.SoldNum.objects.get(num = request.session['sold_num'])
-                total_cost = sold_num.get_total_cost
                 sold_list = models.Sold.objects.filter(sold_num = sold_num)
+                if all(sold.checkout for sold in sold_list) and sold_num.total_cost:
+                    total_cost = sold_num.total_cost 
+                else:
+                    total_cost = sold_num.get_total_cost()
             newsold = forms.Sold(initial = {'sold_num' : sold_num}) 
             return render(request, "sold_list.html", locals())
         except Exception as e:
@@ -220,9 +353,13 @@ def sold_checkout(request):
                     #product = models.Product.objects.get(sold.product)
                     sold.product.amount -= sold.amount
                     sold.product.setStock_Status()
+                    #sold.product.update_at = timezone.now
                     sold.product.save()
+                    #sold.updated_at = timezone.now
                     sold.save()
+            sold_num.total_cost = request.POST.get('total_cost')
             sold_num.set_num()
+            #sold_num.update_at = timezone.now
             sold_num.save()
             print("save success")
             del request.session
@@ -233,7 +370,7 @@ def sold_checkout(request):
         return redirect("/soldsystem/sold_num/list")  
     
 
-# url = "selsession"
+# url = "soldsystem/selsession"
 def sel_session(request):
     #soldsystem = True
     #print("sold_num=======" + request.session['sold_num'])

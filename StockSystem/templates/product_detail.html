@@ -10,16 +10,15 @@
         <div class='col-md-12'>
             <div class='panel panel-default'>
                 <div class='panel-heading' align=center>
-                    <p>產品</p>
                 </div>
                 <div class='panel-heading'>
                     <h3>{{Productcontext.name}}</h3>
-                    <form name = 'product_', action = '.', method = 'POST'>
+                    <form name = 'product', action = '.', method = 'POST'>
                     {%csrf_token%}
                     <table>
-                        {{ProducrForm.as_table}}
+                        {{ProductForm.as_table}}
                     </table>
-                        <input type = 'submit' value='post' name = 'producr_'>
+                        <input type = 'submit' name = 'producr'>
                     </form>
                 </div>
 

@@ -60,7 +60,7 @@ class Product(models.Model):
     length = models.FloatField("product_length", blank = True, null = True, default = 0.0)
     width = models.FloatField("product_width", blank = True, null = True, default = 0.0)
     high = models.FloatField("product_high", blank = True, null = True, default = 0.0)
-    estimated_price = models.FloatField("product_estimated_price", blank = True, null = True, default= 0.0)
+    estimated_price = models.PositiveIntegerField("product_estimated_price", blank = True, null = True, default= 0.0)
     plant_size = models.PositiveIntegerField("product_plant_size", blank = True, choices = PLANT_SIZE,null = True, default = 0)
     created_at = models.DateField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)
@@ -90,17 +90,22 @@ class SoldNum(models.Model): # Sold_Nun -> SoldNum
     distribute = models.CharField('sold_distribute', max_length=1,choices = DISTRIBUTE, blank = True, default = None, null = True)  #eunm
     #sold = models.ManyToManyField(Sold, blank=True, default=None, null = True)
     updated_at = models.DateTimeField(default=timezone.now)
-    checkout = models.BooleanField('sold_num_checkout', default = False)
+    #checkout = models.BooleanField('sold_num_checkout', default = False)
+    total_cost = models.PositiveIntegerField('total_cost', default = 0)
     def __str__(self):
         return self.num
     def get_total_cost(self):
         return sum(item.get_cost() for item in self.sold_order_items.all())
     def set_num(self):
+        if self.total_cost:
+            cost = self.total_cost
+        else:
+            cost = self.get_total_cost()
         if len(self.num) <= 26:
             number = ""
             number += str(datetime.datetime.now())
             number += "cost-"
-            number += str(self.get_total_cost())
+            number += str(cost)
             # number += str(self.id)
             self.num = number
             self.sold_date = datetime.date.today()
@@ -108,8 +113,8 @@ class SoldNum(models.Model): # Sold_Nun -> SoldNum
             print("set num add cost")
             number = self.num
             print(number[:26])
-            print(self.get_total_cost)
-            number = number[:26] + "cost-" + str(self.get_total_cost())
+            print(cost)
+            number = number[:26] + "cost-" + str(cost)
             self.num = number
 
 class Sold(models.Model):
@@ -141,11 +146,30 @@ class PurchaseNum(models.Model):   # Purchas_Num -> PurchaseNum
     created_at = models.DateTimeField('purchase_date', blank=True, default=timezone.now, null = True)
     #purchase = models.ManyToManyField(Purchase, blank=True, default=None, null = True)
     updated_at = models.DateTimeField(default=timezone.now)
-    checkout = models.BooleanField('sold_num_checkout', default = False)
+    #checkout = models.BooleanField('sold_num_checkout', default = False)
+    total_cost = models.PositiveIntegerField('total_cost', default = 0)
+    supplier = models.ForeignKey(Supplier, on_delete = models.CASCADE, blank=True, default=None, null = True)
     def __str__(self):
         return self.num
     def get_total_cost(self):
-        return sum(item.get_cost() for item in self.purchase_items.all())
+        return sum(item.get_cost() for item in self.purchase_order_items.all())
+    def set_num(self):
+        if self.total_cost:
+            cost = self.total_cost
+        else:
+            cost = self.get_total_cost()
+        if len(self.num) <= 26:
+            number = ""
+            number += str(datetime.datetime.now())
+            number += "cost-"
+            number += str(cost)
+            # number += str(self.id)
+            self.num = number
+            self.created_at = datetime.date.today()
+        elif len(self.num) > 26 :
+            number = self.num
+            number = number[:26] + "cost-" + str(cost)
+            self.num = number
 
 class Purchase(models.Model):
     id = models.AutoField(primary_key=True)
@@ -156,10 +180,9 @@ class Purchase(models.Model):
     # Purchas_Num -> PurchaseNum
     created_at = models.DateField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)
-    purchase_num = models.ForeignKey(PurchaseNum, related_name = 'purchase_items', on_delete = models.CASCADE, blank=True, default=None, null = True)
+    purchase_num = models.ForeignKey(PurchaseNum, related_name = 'purchase_order_items', on_delete = models.CASCADE, blank=True, default=None, null = True)
     memo = models.TextField('purchase_memo', blank=True, default=None, null = True)
-    product = models.ForeignKey(Product, related_name = 'purchase_order_items', on_delete = models.CASCADE, blank=True, default=None, null = True)
-    supplier = models.ForeignKey(Supplier, on_delete = models.CASCADE, blank=True, default=None, null = True)
+    product = models.ForeignKey(Product, related_name = 'purchase_items', on_delete = models.CASCADE, blank=True, default=None, null = True)
     category = models.ForeignKey(Category, on_delete = models.CASCADE, blank=True, default=None, null = True)
     checkout = models.BooleanField('sold_num_checkout', default = False)
     def get_cost(self):
