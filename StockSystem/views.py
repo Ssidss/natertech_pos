@@ -5,6 +5,14 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 import datetime 
 from django.contrib.sessions.models import Session
 from django.utils import timezone
+import woocommerce
+
+
+WCAPI = woocommerce.API(
+    url = "https://gardening.natertek.com/",
+    consumer_key = "ck_5fcb74491008556693f151955d50ad03f28fe9da",
+    consumer_secret = "cs_2540edde185be7a621a6c6b09acac5e129a744a3"
+)
 
 # url = "/"
 def index_page(request):
@@ -241,8 +249,8 @@ def sold_page(request, product_num = None):
         if product_num == 'delete':
             try:
                 sold = models.Sold.objects.get(id = request.POST.get('sold_id'))#.delete()
-                if sold.checkout:
-                    sold.product.amount += sold.amount
+                if sold.checkout:  ## amount change
+                    sold.product.amount += sold.amount 
                     #sold.product.update_at = timezone.now
                     sold.product.save()
                 sold.delete()
@@ -250,7 +258,7 @@ def sold_page(request, product_num = None):
             except Exception as e:
                 print(e)
                 print("delete fail")
-            return redirect("/soldsystem/sold/list/")
+            return HttpResponseRedirect("/soldsystem/sold/list/")
         try:
             SoldForm = forms.Sold(request.POST)
             if SoldForm.is_valid():
@@ -313,7 +321,7 @@ def show_sold_list(request):
     if request.method == 'GET':
         try:
             five_num_list = models.SoldNum.objects.filter().order_by('-id')[:5]
-            five_num_list = zip(five_num_list, five_num_list[10:])
+            #five_num_list = zip(five_num_list, five_num_list[10:])
         except Exception as e:
             print(e)
         try:

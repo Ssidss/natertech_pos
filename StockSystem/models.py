@@ -4,11 +4,11 @@ import datetime
 from django.utils.html import format_html
 from django.utils import timezone
 
-
 STOCK_STATUS = (('n', "none"), ('l', "less then 5"), ('s', "sufficient"))
 REASON = (('s', "sold"), ('d', "discount"), ('r', "return"), ('b', "broken"), ('p', 'pruchase'))
 DISTRIBUTE = (('r', "retailer"), ('s', "shapee"))
 PLANT_SIZE = ((1, '1'), (2, '2'), (3, '3'), (4, 'other')) # 4 for other
+
 
 class Category(models.Model):
     id = models.AutoField(primary_key=True)
@@ -121,7 +121,7 @@ class Sold(models.Model):
     id = models.AutoField(primary_key=True)
     amount = models.PositiveIntegerField('sold_amount')
     #sold_date = models.DateField()
-    price = models.DecimalField('sold_revenue', max_digits=10, decimal_places = 0, default = 0)    
+    price = models.DecimalField('sold_price', max_digits=10, decimal_places = 0, default = 0)    
     reason = models.CharField('sold_reason', max_length=1,choices = REASON, blank = True, null = True, default = 's')   #enum
     memo = models.TextField('sold_memo', blank=True, default=None, null = True)
     product = models.ForeignKey(Product, related_name = 'sold_items', on_delete = models.CASCADE, default = 1)
@@ -175,7 +175,7 @@ class Purchase(models.Model):
     id = models.AutoField(primary_key=True)
     amount = models.PositiveIntegerField('pruchase_amount', blank = True, default = 0)
     #purchase_date = models.DateTimeField('purchase_date', blank=True, default=datetime.datetime.now, null = True)
-    price = models.DecimalField('purchase_expenses', max_digits=10, decimal_places=0, default = 0)
+    price = models.DecimalField('purchase_price', max_digits=10, decimal_places=0, default = 0)
     reason =  models.CharField('purchase_reason', max_length=1, choices = REASON, blank = True, null = True, default = 'p')    #enum
     # Purchas_Num -> PurchaseNum
     created_at = models.DateField(default=timezone.now)

@@ -128,7 +128,7 @@ var TableInit = function () {
                     formatter: function(value){ return '<form name = "deletenum" action = "/soldsystem/sold_num/delete/" method = "POST">'+
                                                         '{%csrf_token%}'+
                                                         '<input type = "hidden" name = "num_id" id = "num_id" value = "'+value+'">'+
-                                                        '<input type = "submit" class = "btn btn-dark" value = "Delete" name = "deletenum">'+
+                                                        '<input type = "submit" class = "btn btn-dark" value = "Delete" name = "deletenum" onclick="return(confirm(\'確定要刪除？\'))">'+
                                                         '</form>'; }}
                 //{field:'modifyById', title:'<fmt:message key="general.operate"/>', align:'center', visible:true,
                 //	formatter: function(value){ return  '<a href = "/customers/'+value+'"><i class="fas fa-eye"></i></a>'+
