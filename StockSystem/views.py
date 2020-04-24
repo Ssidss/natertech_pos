@@ -84,7 +84,22 @@ def purchase_page(request, product_num = None):
     # If request mehtof is POST
     elif request.method == 'POST':  # save purchase
         # delete method
-        if product_num == 'delete':
+        if product_num == "edit":
+            try:
+                purchase = models.Purchase.objects.get(id = request.POST.get('purchase_id'))
+                if purchase.checkout:
+                    purchase.product.amount -= purchase.amount
+                    purchase.product.save()
+                    purchase.checkout = False
+                    purchase.save()
+                    print("save success")
+                PurchaseForm = forms.Purchase(instance = purchase)
+                return render(request, "purchase/purchase_page.html", locals())
+            except Exception as e:
+                print (e)
+                print("edit get fail")
+
+        elif product_num == 'delete':
             try:
                 purchase = models.Purchase.objects.get(id = request.POST.get('purchase_id'))#.delete()
                 if purchase.checkout:
@@ -97,7 +112,12 @@ def purchase_page(request, product_num = None):
                 print("delete fail")
             return redirect("/purchasesystem/purchase/list/")
         try:
-            PurchaseForm = forms.Purchase(request.POST)
+            try:
+                purchase = models.Purchase.objects.get(id = request.POST.get('purchase_id'))
+            except Exception as e:
+                print(e)
+                purchase = None
+            PurchaseForm = forms.Purchase(request.POST, instance = purchase)
             if PurchaseForm.is_valid():
                 PurchaseForm.save()
                 return HttpResponseRedirect('/purchasesystem/purchase/list/')
@@ -105,8 +125,6 @@ def purchase_page(request, product_num = None):
             print(e)
     return render(request, "purchase/purchase_page.html", locals())
         
-
-    return render(request, 'purchase/purchase_page.html', locals())
 # url = "purchasesystem/purchase_num/list/"
 def show_purchase_num_list(request):
     purchasesystem = True
@@ -246,7 +264,22 @@ def sold_page(request, product_num = None):
     # If request mehtof is POST
     elif request.method == 'POST':  # save sold
         # delete method
-        if product_num == 'delete':
+        if product_num == 'edit':
+            try:
+                sold = models.Sold.objects.get(id = request.POST.get('sold_id'))#.delete()
+                if sold.checkout:  ## amount change
+                    sold.product.amount += sold.amount 
+                    sold.product.save()
+                    sold.checkout = False
+                    sold.save()
+                SoldForm = forms.Sold(instance = sold)  #update
+                return render(request, "sold_page.html", locals())
+
+            except Exception as e:
+                print(e)
+                    
+        elif product_num == 'delete':
+            print("delete sold")
             try:
                 sold = models.Sold.objects.get(id = request.POST.get('sold_id'))#.delete()
                 if sold.checkout:  ## amount change
@@ -260,7 +293,12 @@ def sold_page(request, product_num = None):
                 print("delete fail")
             return HttpResponseRedirect("/soldsystem/sold/list/")
         try:
-            SoldForm = forms.Sold(request.POST)
+            try:
+                sold = models.Sold.objects.get(id = request.POST.get('sold_id'))
+            except Exception as e:
+                print(e)
+                sold = None
+            SoldForm = forms.Sold(request.POST, instance = sold)
             if SoldForm.is_valid():
                 SoldForm.save()
                 return HttpResponseRedirect('/soldsystem/sold/list/')

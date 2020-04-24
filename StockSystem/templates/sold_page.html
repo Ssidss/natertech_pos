@@ -15,11 +15,12 @@
                 </div>
                 <div class='panel-heading'>
                     <h3>{{Product.name}}</h3>
-                    <form name = 'sold_', action = '.', method = 'POST'>
+                    <form name = 'sold_', action = '/sold/update/', method = 'POST'>
                     {%csrf_token%}
                     <table>
                         {{SoldForm.as_table}}
                     </table>
+                        <input type = "hidden" value = "{{sold.id}}" name = 'sold_id'>
                         <input type = 'submit' value='post' name = 'sold_'>
                     </form>
                 </div>

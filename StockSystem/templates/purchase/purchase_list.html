@@ -134,7 +134,12 @@ var TableInit = function () {
                 {field:'price', title:'Price', align:'left', width:200, visible:true, sortable:true},
                 {field:'cost', title:'Cost', align:'left', width:200, visible:true, sortable:true},
                 {field:'checkout', title:'checkout', align:'center', width:50, visible:true},
-                {field:'delete', title:'delete', align:'center', width:50, visible:true,
+                {field:'p_id', title:'Edit', align:'center', width:50, visible:true,
+                    formatter: function(value){ return '<form name = "edit_purchase" action = "/purchase/edit/" method = "POST">'+
+                                                       '{% csrf_token %}'+
+                                                       '<input type = "hidden" name = "purchase_id" value = "'+value+'">'+
+                                                       '<input type = "submit" class = "btn btn-dark" value = "Edit" name = "edit_purchase"></form>';}},
+                {field:'p_id', title:'delete', align:'center', width:50, visible:true,
                     formatter: function(value){ return '<form name = "delete_purchase" action = "/purchase/delete/" method = "POST">'+
                     '{%csrf_token%}'+
                     '<input type = "hidden" name = "purchase_id" value = "'+value+'">'+
@@ -181,7 +186,7 @@ function getData() { //修改資料
           {%else%}
             checkout: "",
           {%endif%}
-          delete: "{{purchase.id}}"
+          p_id: "{{purchase.id}}"
 	   });
 	  {%endfor%}
 	  //}

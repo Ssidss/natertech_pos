@@ -15,7 +15,7 @@
                 </div>
                 <div class='panel-heading'>
 
-                    <form name = 'purchase', action = '.', method = 'POST'>
+                    <form name = 'purchase', action = '/purchase/update/', method = 'POST'>
                     {%csrf_token%}
                     <table>
                         <tr>
@@ -28,6 +28,7 @@
                         </tr>
                         {{PurchaseForm.as_table}}
                     </table>
+                        <input type = "hidden" value = "{{purchase.id}}" name = 'purchase_id'>
                         <input type = 'submit' value='post' name = 'purchase'>
                     </form>
                 </div>

@@ -91,6 +91,7 @@ $(document).ready(function() {
 		//删除
 	});
 });
+
 var TableInit = function () {
     var oTableInit = new Object();
     //初始化Table
@@ -134,11 +135,17 @@ var TableInit = function () {
                 {field:'price', title:'Price', align:'left', width:200, visible:true, sortable:true},
                 {field:'cost', title:'Cost', align:'left', width:200, visible:true, sortable:true},
                 {field:'checkout', title:'checkout', align:'center', width:50, visible:true},
-                {field:'delete', title:'delete', align:'center', width:50, visible:true,
+                {field:'s_id', title:'Edit', align:'center', width:50, visible:true,
+                    formatter: function(value){ return '<form name = "edit_sold" action = "/sold/edit/" method = "POST">'+
+                                                       '{% csrf_token %}'+
+                                                       '<input type = "hidden" name = "sold_id" value = "'+value+'">'+
+                                                       '<input type = "submit" class = "btn btn-dark" value = "Edit" name = "edit_sold"></form>';}},
+                {field:'s_id_d', title:'delete', align:'center', width:50, visible:true,
                     formatter: function(value){ return '<form name = "delete_sold" action = "/sold/delete/" method = "POST">'+
                     '{%csrf_token%}'+
                     '<input type = "hidden" name = "sold_id" value = "'+value+'">'+
                     '<input type = "submit" class = "btn btn-dark" value = "Delete" name = "delete_sold" onclick="return(confirm(\'確定要刪除？\'))"></form>';} }
+                
                 //{field:'ind', title:'modify', align:'center', visible:true,
                 //	formatter: function(value){ return  '<a href = "/product/'+value+'"><i class="fas btn-dark fa-eye" ></i></a>';} }
 
@@ -181,7 +188,8 @@ function getData() { //修改資料
           {%else%}
             checkout: "",
           {%endif%}
-          delete: "{{sold.id}}"
+          s_id: "{{sold.id}}",
+          s_id_d:"{{sold.id}}"
 	   });
 	  {%endfor%}
 	  //}

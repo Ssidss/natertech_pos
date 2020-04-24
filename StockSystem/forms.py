@@ -39,6 +39,7 @@ class Sold(forms.ModelForm):
     class Meta:
         model = models.Sold
         fields = ['product', 'amount', 'price', 'reason', 'fee', 'memo', 'sold_num']
+        #widgets = {'id': forms.HiddenInput()}
     def __init__(self, *args, **kwargs):
         super(Sold, self).__init__(*args, **kwargs)
         
