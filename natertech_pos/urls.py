@@ -47,6 +47,8 @@ urlpatterns = [
     path('soldsystem/selsession/', stock_views.sel_session),
     # set product's wordpress id 
     path('setproduct_wpid/', stock_views.set_product_wpid),
+    # background_task
+    #path('', stock_views.wordpress_product_modify),
 
 
 ]

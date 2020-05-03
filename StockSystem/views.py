@@ -6,7 +6,7 @@ import datetime
 from django.contrib.sessions.models import Session
 from django.utils import timezone
 import woocommerce
-
+from background_task import background
 
 WCAPI = woocommerce.API(
     url = "https://gardening.natertek.com/",
@@ -16,25 +16,30 @@ WCAPI = woocommerce.API(
 
 def set_product_wpid(request):
     try:
-        f = open("./../product_id.csv", mode = 'r')
+        page = 1
+        product_url = "products?page="
+        wp_data = WCAPI.get(product_url+str(page))
+        while(len(wp_data.json()) != 1):
+            print("page = " + str(page))
+            if not wp_data.json():
+                break
+            for data in wp_data.json():
+                #product_dict[data['name']] = data['id']
+                #f.write(str(data['name'])+","+str(data['id'])+"\n")
+                #name, id = i.split(',')
+                try:
+                    product = models.Product.objects.get(name = data['name'])
+                    product.wp_id = data['id']
+                    print(product.name)
+                    product.save()
+                    print(data['name'], end = ', ')
+                    print(data['id'])
+                except Exception as e:
+                    print(e)
+            page += 1
+            wp_data = WCAPI.get(product_url+str(page))
     except Exception as e:
-        print (e)
-        return redirect("/")
-    id_name_pair = f.read().split('\n')
-    #id_name_dict = dict()
-    for i in id_name_pair:
-        #id_name_dict[name] = id
-        try:
-            name, id = i.split(',')
-            product = models.Product.objects.get(name = name)
-            product.wp_id = id
-            print(product.name)
-            product.save()
-        except Exception as e:
-            #print(e)
-            pass
-    
-    f.close()
+        print(e)
     return HttpResponseRedirect("/")
 
 # url = "/"
@@ -482,6 +487,7 @@ def sel_session(request):
         return redirect("/soldsystem/sold/list")
 
 # get wordpress order by WCAPI periodically and modify DB quantity of product 
+@background(schedule = 5)
 def wordpress_product_modify(request):
     print("wordpress_product_modify called")
-    return HttpResponse(status = 200)
+    #return HttpResponse(status = 200)
