@@ -47,6 +47,7 @@ class Genus(models.Model):  #屬
 
 class Product(models.Model):
     id = models.AutoField(primary_key=True)
+    wp_id = models.PositiveIntegerField('wordpress_product_id', default = None, null = True, blank = True)
     name = models.CharField('product_name', max_length=200)
     amount = models.IntegerField('product_amount', default=0)
     product_num = models.SlugField('product_num', max_length=200, unique=True, blank = True, null = True, default = None)

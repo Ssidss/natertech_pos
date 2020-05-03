@@ -3,13 +3,14 @@ from django.shortcuts import render
 import StockSystem.models as smodels
 import datetime
 
+# url = product_analysis
 def product_list_analysis(request):
     re_dict = dict()
     sold = smodels.Sold.objects.all()
     sold_daily = []
-    #today_sold = sold.filter(sold_date = datetime.date.today())
-    #for i in range (30, -1, -1):
-        #sold_daily.append(sold.filter(sold_date = datetime.date.today()-datetime.timedelta(days = i)))
+    today_sold = sold.sold_num.filter(created_at = datetime.date.today())
+    for i in range (30, -1, -1):
+        sold_daily.append(sold.sold_num.filter(created_at = datetime.date.today()-datetime.timedelta(days = i)))
 
     print(sold_daily)
     re_dict['sold_daily'] = enumerate(sold_daily)

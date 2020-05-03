@@ -44,5 +44,9 @@ urlpatterns = [
     path('soldsystem/sold_num/delete/', stock_views.delete_sold_nun),
     path('soldsystem/sold/list/', stock_views.show_sold_list),
     path('soldsystem/checkout/', stock_views.sold_checkout),
-    path('soldsystem/selsession/', stock_views.sel_session)
+    path('soldsystem/selsession/', stock_views.sel_session),
+    # set product's wordpress id 
+    path('setproduct_wpid/', stock_views.set_product_wpid),
+
+
 ]

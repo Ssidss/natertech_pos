@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from StockSystem import models, forms
-from django.http import JsonResponse, HttpResponseRedirect
+from django.http import JsonResponse, HttpResponseRedirect, HttpResponse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 import datetime 
 from django.contrib.sessions.models import Session
@@ -10,9 +10,32 @@ import woocommerce
 
 WCAPI = woocommerce.API(
     url = "https://gardening.natertek.com/",
-    consumer_key = "ck_5fcb74491008556693f151955d50ad03f28fe9da",
-    consumer_secret = "cs_2540edde185be7a621a6c6b09acac5e129a744a3"
+    consumer_key = "ck_d53e1b22959acb4bc5d8dd7a0e9e5a4773cc4adb",
+    consumer_secret = "cs_4d92a26e3ce3a5358ea8e814e05c2390a9569bac"
 )
+
+def set_product_wpid(request):
+    try:
+        f = open("./../product_id.csv", mode = 'r')
+    except Exception as e:
+        print (e)
+        return redirect("/")
+    id_name_pair = f.read().split('\n')
+    #id_name_dict = dict()
+    for i in id_name_pair:
+        #id_name_dict[name] = id
+        try:
+            name, id = i.split(',')
+            product = models.Product.objects.get(name = name)
+            product.wp_id = id
+            print(product.name)
+            product.save()
+        except Exception as e:
+            #print(e)
+            pass
+    
+    f.close()
+    return HttpResponseRedirect("/")
 
 # url = "/"
 def index_page(request):
@@ -48,8 +71,6 @@ def product_view(request, p_num = None):
             Productcontext = models.Product.objects.get(product_num = p_num)
             ProductForm = forms.Product(request.POST, instance = Productcontext)
             if ProductForm.is_valid():
-                #Productcontext = models.Product.objects.get(product_num = ProductForm.fields['product_num'])
-                #Productcontext.amount = ProductForm.fields['amount']
                 Productcontext.save()
             print("post success")
         except:
@@ -87,8 +108,11 @@ def purchase_page(request, product_num = None):
         if product_num == "edit":
             try:
                 purchase = models.Purchase.objects.get(id = request.POST.get('purchase_id'))
-                if purchase.checkout:
+                if purchase.checkout: # restore product amount if purchase had checked out
                     purchase.product.amount -= purchase.amount
+                    if purchase.product.wp_id:
+                        WCAPI.post("products/"+str(purchase.product.wp_id), {"stock_quantity": purchase.product.amount})
+                        print("update wp product "+ purchase.product.name + " success")
                     purchase.product.save()
                     purchase.checkout = False
                     purchase.save()
@@ -99,11 +123,14 @@ def purchase_page(request, product_num = None):
                 print (e)
                 print("edit get fail")
 
-        elif product_num == 'delete':
+        elif product_num == 'delete':  # delete single purchase 
             try:
                 purchase = models.Purchase.objects.get(id = request.POST.get('purchase_id'))#.delete()
-                if purchase.checkout:
+                if purchase.checkout: ## restore product amount if purchase had checked out
                     purchase.product.amount += purchase.amount
+                    if purchase.product.wp_id:
+                        WCAPI.post("products/"+str(purchase.product.wp_id), {"stock_quantity": purchase.product.amount})
+                        print("update wp product "+ purchase.product.name + " success")
                     purchase.product.save()
                 purchase.delete()
                 print("Delete Success")
@@ -148,7 +175,8 @@ def new_purchase_num(request):
     #return render(request, "sold_cart.html", locals())
 
 #url = "purchasesystem/purchase_num/delete"
-def delete_purchase_num(request):
+# Delete purchase number and restore product amount if purchase had checked out
+def delete_purchase_num(request):  
     try:
         num_id = request.POST.get("num_id")
         purchase_num = models.PurchaseNum.objects.get(id = num_id)
@@ -156,6 +184,9 @@ def delete_purchase_num(request):
         for purchase in purchase_list:
             if purchase.checkout:
                 purchase.product.amount -= purchase.amount
+                if purchase.product.wp_id:
+                        print(WCAPI.post("products/"+str(purchase.product.wp_id), {"stock_quantity": purchase.product.amount}))
+                        print("update wp product "+ purchase.product.name + " success")
                 #sold.product.update_at = timezone.now
                 purchase.product.save()
             purchase.delete()
@@ -196,6 +227,7 @@ def show_purchase_list(request):
         return redirect("/purchasesystem/purchase/list/")
 
 #url = "purchasesystem/checkout/"
+# Purchase checkout and modify purchase product amount
 def purchase_checkout(request):
     if request.method == 'POST':
         try:
@@ -207,9 +239,12 @@ def purchase_checkout(request):
                 if purchase.checkout == True:
                     print("sold True")
                     continue
-                else:
+                else: # modify product amount and set purchase being checkout
                     purchase.checkout = True
                     purchase.product.amount += purchase.amount
+                    if purchase.product.wp_id:
+                        WCAPI.post("products/"+str(purchase.product.wp_id), {"stock_quantity": purchase.product.amount})
+                        print("update wp product "+ purchase.product.name + " success")
                     purchase.product.setStock_Status()
                     purchase.product.save()
                     purchase.save()
@@ -263,12 +298,16 @@ def sold_page(request, product_num = None):
             print(e)
     # If request mehtof is POST
     elif request.method == 'POST':  # save sold
-        # delete method
+        # edit method 
+        # edit single sold and set uncheckout
         if product_num == 'edit':
             try:
                 sold = models.Sold.objects.get(id = request.POST.get('sold_id'))#.delete()
-                if sold.checkout:  ## amount change
+                if sold.checkout:  # restore product amount if sold had checked out
                     sold.product.amount += sold.amount 
+                    if sold.product.wp_id:
+                        WCAPI.post("products/"+str(sold.product.wp_id), {"stock_quantity": sold.product.amount})
+                        print("update wp product "+ sold.product.name + " success")
                     sold.product.save()
                     sold.checkout = False
                     sold.save()
@@ -282,8 +321,11 @@ def sold_page(request, product_num = None):
             print("delete sold")
             try:
                 sold = models.Sold.objects.get(id = request.POST.get('sold_id'))#.delete()
-                if sold.checkout:  ## amount change
+                if sold.checkout:  # restore product amount if sold had checked out
                     sold.product.amount += sold.amount 
+                    if sold.product.wp_id:
+                        WCAPI.post("products/"+str(sold.product.wp_id), {"stock_quantity": sold.product.amount})
+                        print("update wp product "+ sold.product.name + " success")
                     #sold.product.update_at = timezone.now
                     sold.product.save()
                 sold.delete()
@@ -333,6 +375,7 @@ def new_sold_num(request):
     #return render(request, "sold_cart.html", locals())
 
 # url = "soldsystem/sold_num/delete"
+# Delete sold number and restore product amount if sold had checked out
 def delete_sold_nun(request):
     #soldsystem = True
     try:
@@ -340,8 +383,11 @@ def delete_sold_nun(request):
         sold_num = models.SoldNum.objects.get(id = num_id)
         sold_list = models.Sold.objects.filter(sold_num = num_id)
         for sold in sold_list:
-            if sold.checkout:
+            if sold.checkout:  # restore product amount
                 sold.product.amount += sold.amount
+                if sold.product.wp_id:
+                        WCAPI.post("products/"+str(sold.product.wp_id), {"stock_quantity": sold.product.amount})
+                        print("update wp product "+ sold.product.name + " success")
                 #sold.product.update_at = timezone.now
                 sold.product.save()
             sold.delete()
@@ -398,8 +444,11 @@ def sold_checkout(request):
                     continue
                 else:
                     sold.checkout = True
-                    #product = models.Product.objects.get(sold.product)
+                    # restore product amount if sold had checked out
                     sold.product.amount -= sold.amount
+                    if sold.product.wp_id:
+                        WCAPI.post("products/"+str(sold.product.wp_id), {"stock_quantity": sold.product.amount})
+                        print("update wp product "+ sold.product.name + " success")
                     sold.product.setStock_Status()
                     #sold.product.update_at = timezone.now
                     sold.product.save()
@@ -431,3 +480,8 @@ def sel_session(request):
             print(e)
         
         return redirect("/soldsystem/sold/list")
+
+# get wordpress order by WCAPI periodically and modify DB quantity of product 
+def wordpress_product_modify(request):
+    print("wordpress_product_modify called")
+    return HttpResponse(status = 200)
