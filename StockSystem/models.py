@@ -93,6 +93,8 @@ class SoldNum(models.Model): # Sold_Nun -> SoldNum
     updated_at = models.DateTimeField(default=timezone.now)
     #checkout = models.BooleanField('sold_num_checkout', default = False)
     total_cost = models.PositiveIntegerField('total_cost', default = 0)
+    def checkout(self):
+        return all(item.checkout for item in self.sold_order_items.all())
     def __str__(self):
         return self.num
     def get_total_cost(self):
@@ -150,6 +152,8 @@ class PurchaseNum(models.Model):   # Purchas_Num -> PurchaseNum
     #checkout = models.BooleanField('sold_num_checkout', default = False)
     total_cost = models.PositiveIntegerField('total_cost', default = 0)
     supplier = models.ForeignKey(Supplier, on_delete = models.CASCADE, blank=True, default=None, null = True)
+    def checkout(self):
+        return all(item.checkout for item in self.purchase_order_items.all())
     def __str__(self):
         return self.num
     def get_total_cost(self):

@@ -14,33 +14,7 @@ WCAPI = woocommerce.API(
     consumer_secret = "cs_4d92a26e3ce3a5358ea8e814e05c2390a9569bac"
 )
 
-def set_product_wpid(request):
-    try:
-        page = 1
-        product_url = "products?page="
-        wp_data = WCAPI.get(product_url+str(page))
-        while(len(wp_data.json()) != 1):
-            print("page = " + str(page))
-            if not wp_data.json():
-                break
-            for data in wp_data.json():
-                #product_dict[data['name']] = data['id']
-                #f.write(str(data['name'])+","+str(data['id'])+"\n")
-                #name, id = i.split(',')
-                try:
-                    product = models.Product.objects.get(name = data['name'])
-                    product.wp_id = data['id']
-                    print(product.name)
-                    product.save()
-                    print(data['name'], end = ', ')
-                    print(data['id'])
-                except Exception as e:
-                    print(e)
-            page += 1
-            wp_data = WCAPI.get(product_url+str(page))
-    except Exception as e:
-        print(e)
-    return HttpResponseRedirect("/")
+
 
 # url = "/"
 def index_page(request):
@@ -116,7 +90,8 @@ def purchase_page(request, product_num = None):
                 if purchase.checkout: # restore product amount if purchase had checked out
                     purchase.product.amount -= purchase.amount
                     if purchase.product.wp_id:
-                        WCAPI.post("products/"+str(purchase.product.wp_id), {"stock_quantity": purchase.product.amount})
+                        WCAPI.post("products/"+str(purchase.product.wp_id), {"stock_quantity": 
+                            int(WCAPI.get("products/"+str(purchase.product.wp_id))['quantity']) - purchase.amount})
                         print("update wp product "+ purchase.product.name + " success")
                     purchase.product.save()
                     purchase.checkout = False
@@ -132,9 +107,10 @@ def purchase_page(request, product_num = None):
             try:
                 purchase = models.Purchase.objects.get(id = request.POST.get('purchase_id'))#.delete()
                 if purchase.checkout: ## restore product amount if purchase had checked out
-                    purchase.product.amount += purchase.amount
+                    purchase.product.amount -= purchase.amount
                     if purchase.product.wp_id:
-                        WCAPI.post("products/"+str(purchase.product.wp_id), {"stock_quantity": purchase.product.amount})
+                        WCAPI.post("products/"+str(purchase.product.wp_id), {"stock_quantity": 
+                        int(WCAPI.get("products/"+str(purchase.product.wp_id))['quantity']) - purchase.amount})
                         print("update wp product "+ purchase.product.name + " success")
                     purchase.product.save()
                 purchase.delete()
@@ -187,10 +163,11 @@ def delete_purchase_num(request):
         purchase_num = models.PurchaseNum.objects.get(id = num_id)
         purchase_list = models.Purchase.objects.filter(purchase_num = num_id)
         for purchase in purchase_list:
-            if purchase.checkout:
+            if purchase.checkout: # if purchase is checkouted reduce amount
                 purchase.product.amount -= purchase.amount
                 if purchase.product.wp_id:
-                        print(WCAPI.post("products/"+str(purchase.product.wp_id), {"stock_quantity": purchase.product.amount}))
+                        print(WCAPI.post("products/"+str(purchase.product.wp_id), {"stock_quantity": 
+                            int(WCAPI.get("products/"+str(purchase.product.wp_id))['quantity']) - purchase.amount}))
                         print("update wp product "+ purchase.product.name + " success")
                 #sold.product.update_at = timezone.now
                 purchase.product.save()
@@ -248,7 +225,8 @@ def purchase_checkout(request):
                     purchase.checkout = True
                     purchase.product.amount += purchase.amount
                     if purchase.product.wp_id:
-                        WCAPI.post("products/"+str(purchase.product.wp_id), {"stock_quantity": purchase.product.amount})
+                        WCAPI.post("products/"+str(purchase.product.wp_id), {"stock_quantity": 
+                            int(WCAPI.get("products/"+str(purchase.product.wp_id))['quantity']) + purchase.amount})
                         print("update wp product "+ purchase.product.name + " success")
                     purchase.product.setStock_Status()
                     purchase.product.save()
@@ -311,7 +289,8 @@ def sold_page(request, product_num = None):
                 if sold.checkout:  # restore product amount if sold had checked out
                     sold.product.amount += sold.amount 
                     if sold.product.wp_id:
-                        WCAPI.post("products/"+str(sold.product.wp_id), {"stock_quantity": sold.product.amount})
+                        WCAPI.post("products/"+str(sold.product.wp_id), {"stock_quantity": 
+                        int(WCAPI.get("products/"+str(sold.product.wp_id))['quantity']) + sold.amount})
                         print("update wp product "+ sold.product.name + " success")
                     sold.product.save()
                     sold.checkout = False
@@ -329,7 +308,8 @@ def sold_page(request, product_num = None):
                 if sold.checkout:  # restore product amount if sold had checked out
                     sold.product.amount += sold.amount 
                     if sold.product.wp_id:
-                        WCAPI.post("products/"+str(sold.product.wp_id), {"stock_quantity": sold.product.amount})
+                        WCAPI.post("products/"+str(sold.product.wp_id), {"stock_quantity": 
+                            int(WCAPI.get("products/"+str(sold.product.wp_id))['quantity']) + sold.amount})
                         print("update wp product "+ sold.product.name + " success")
                     #sold.product.update_at = timezone.now
                     sold.product.save()
@@ -391,7 +371,8 @@ def delete_sold_nun(request):
             if sold.checkout:  # restore product amount
                 sold.product.amount += sold.amount
                 if sold.product.wp_id:
-                        WCAPI.post("products/"+str(sold.product.wp_id), {"stock_quantity": sold.product.amount})
+                        WCAPI.post("products/"+str(sold.product.wp_id), {"stock_quantity": 
+                            int(WCAPI.get("products/"+str(sold.product.wp_id))['quantity']) + sold.amount})
                         print("update wp product "+ sold.product.name + " success")
                 #sold.product.update_at = timezone.now
                 sold.product.save()
@@ -449,10 +430,11 @@ def sold_checkout(request):
                     continue
                 else:
                     sold.checkout = True
-                    # restore product amount if sold had checked out
+                    # restore product amount if sold had not checked out
                     sold.product.amount -= sold.amount
                     if sold.product.wp_id:
-                        WCAPI.post("products/"+str(sold.product.wp_id), {"stock_quantity": sold.product.amount})
+                        WCAPI.post("products/"+str(sold.product.wp_id), {"stock_quantity": 
+                            int(WCAPI.get("products/"+str(sold.product.wp_id))['quantity']) - sold.amount})
                         print("update wp product "+ sold.product.name + " success")
                     sold.product.setStock_Status()
                     #sold.product.update_at = timezone.now
@@ -485,9 +467,53 @@ def sel_session(request):
             print(e)
         
         return redirect("/soldsystem/sold/list")
+        
+# url = "/setproduct_wpid/"
+def set_product_wpid(request):
+    try:
+        page = 1
+        product_url = "products?per_page=50?page="
+        wp_data = WCAPI.get(product_url+str(page))
+        while(len(wp_data.json()) != 1):
+            print("page = " + str(page))
+            if not wp_data.json():
+                break
+            for data in wp_data.json():
+                #product_dict[data['name']] = data['id']
+                #f.write(str(data['name'])+","+str(data['id'])+"\n")
+                #name, id = i.split(',')
+                try:
+                    product = models.Product.objects.get(name = data['name'])
+                    product.wp_id = data['id']
+                    print(product.name)
+                    product.save()
+                    print(data['name'], end = ', ')
+                    print(data['id'])
+                except Exception as e:
+                    print(e)
+            page += 1
+            wp_data = WCAPI.get(product_url+str(page))
+    except Exception as e:
+        print(e)
+    return HttpResponseRedirect("/")
 
 # get wordpress order by WCAPI periodically and modify DB quantity of product 
 @background(schedule = 5)
 def wordpress_product_modify(request):
     print("wordpress_product_modify called")
     #return HttpResponse(status = 200)
+    """
+    try:
+        page = 1
+        product_url = "products?per_page=50?page="
+        wp_data = WCAPI.get(product_url+str(page))
+        while(wp_data.json()):
+            pass
+            for data in wp_data.json():
+                try:
+                    pass
+                except Exception as e:
+                    print(e)
+    except Exception as e:
+        print(e)
+    """

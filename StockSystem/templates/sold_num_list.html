@@ -115,6 +115,7 @@ var TableInit = function () {
             	//	formatter: function(value){ return '<a href = "/customers/'+value+'">'+value+'</a>'; } },
                 {field:'sold_num', title:'Sold Number', align:'center', width:300, visible:true, sortable:true},
                 {field:'total_price', title:'Total Price', align:'left', width:100, visible:true, sortable:true},
+                {field:'checkout', title:'Checkout', align:'center', width:50, visible:true, sortable:true},
                 //{field:'distribute', title:'Distribute', align:'left', width:100, visible:true, sortable:true},
                 //{field:'ind', title:'modify', align:'center', visible:true,
                 //	formatter: function(value){ return  '<a href = "/product/'+value+'"><i class="fas btn-dark fa-eye" ></i></a>';} }
@@ -164,7 +165,12 @@ function getData() { //修改資料
 	      total_price: "{{sold_num.total_cost}}",
 	      distribute: "{{sold_num.distribute}}",
           selsession: "{{sold_num.num}}",
-          delete: "{{sold_num.id}}"
+          delete: "{{sold_num.id}}",
+          {% if sold_num.checkout %}
+            checkout: "<i class=\"far fa-check-square\"></i>"
+          {%else%}
+            checkout: ""
+          {%endif%}
 	   });
 	  {%endfor%}
 	  //}

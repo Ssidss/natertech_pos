@@ -131,6 +131,7 @@ var TableInit = function () {
             	//	formatter: function(value){ return '<a href = "/customers/'+value+'">'+value+'</a>'; } },
                 //{field:'image', title:' ', align:'center', visible:true, sortable:true},
                 {field:'name', title:'Product Name', align:'left', width:200, visible:true, sortable:true},
+                {field:'size', title:'Size', align:'center', width:50, visible:true},
                 {field:'amount', title:'Amount', align:'left', width:200, visible:true, sortable:true},
                 {field:'price', title:'Price', align:'left', width:200, visible:true, sortable:true},
                 {field:'cost', title:'Cost', align:'left', width:200, visible:true, sortable:true},
@@ -189,7 +190,8 @@ function getData() { //修改資料
             checkout: "",
           {%endif%}
           s_id: "{{sold.id}}",
-          s_id_d:"{{sold.id}}"
+          s_id_d:"{{sold.id}}",
+          size: "{{sold.product.plant_size}}"
 	   });
 	  {%endfor%}
 	  //}
